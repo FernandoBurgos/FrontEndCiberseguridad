@@ -10,13 +10,47 @@ import GoogleSignIn
 import GoogleSignInSwift
 import FirebaseAuth
 import Firebase
+import Combine
 
 struct Login: View {
     @State private var correo: String = "Correo"
     @State private var password: String = "Contraseña"
     @State private var input: String = ""
+    @State private var cancellables: Set<AnyCancellable> = []
     
-    
+    func apiLogin(accountToken: String, cancellables: inout Set<AnyCancellable>) {
+        let loginUrl = URL(string: apiURL + "/oauth2/login")!
+        print(loginUrl)
+        
+        var loginRequest = URLRequest(url: loginUrl)
+        loginRequest.httpMethod = "POST"
+        loginRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        loginRequest.httpBody = try? JSONEncoder().encode(["accountToken": accountToken])
+        
+        URLSession.shared.dataTaskPublisher(for: loginRequest)
+            .tryMap { data, response -> Data in
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    throw URLError(.badServerResponse)
+                }
+                return data
+            }
+            .decode(type: LoginResponse.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print("API Error:", error)
+                case .finished:
+                    break
+                }
+            }, receiveValue: { value in
+                print("User logged in:", value)
+            })
+            .store(in: &cancellables)
+        }
+        
+        func registerUser(accountToken: String, username: String) {
+            // Implementation for user registration
+        }
     
     var body: some View {
         VStack{
@@ -68,28 +102,28 @@ struct Login: View {
                     }*/
                     GoogleSignInButton {
                         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-
+                        
                         // Create Google Sign In configuration object.
                         let config = GIDConfiguration(clientID: clientID)
                         GIDSignIn.sharedInstance.configuration = config
-
-                        // Start the sign in flow!
+                        
+                        // Start the sign in flow
                         GIDSignIn.sharedInstance.signIn(withPresenting: getRootViewController()) { result, error in
-                          guard error == nil else {
-                            return
-                          }
-                         
-                          guard let user = result?.user,
-                            let idToken = user.idToken?.tokenString
-                          else {
-                            return
-                          }
-                          print(idToken)
-                          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                                         accessToken: user.accessToken.tokenString)
+                            guard error == nil else {
+                                return
+                            }
+                            
+                            guard let user = result?.user,
+                                  let idToken = user.idToken?.tokenString
+                            else {
+                                return
+                            }
 
-                          // ...
+                            apiLogin(accountToken: idToken, cancellables: &cancellables)
                         }
+                        
+                        
+                        
                     }
                     .offset(y:-40)
                     .padding(10)
