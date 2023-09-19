@@ -18,6 +18,8 @@
 		7FA9D2032AB7CEBE007EA960 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2022AB7CEBE007EA960 /* Login.swift */; };
 		7FA9D2052AB80304007EA960 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2042AB80304007EA960 /* Register.swift */; };
 		7FA9D2092AB82D8D007EA960 /* Mainp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2082AB82D8D007EA960 /* Mainp.swift */; };
+		FB13C3CB2ABA45FB00F347BA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13C3CA2ABA45FB00F347BA /* SearchView.swift */; };
+		FB13C3CD2ABA460C00F347BA /* OrgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13C3CC2ABA460C00F347BA /* OrgView.swift */; };
 		FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FBB310A72AB9040F00980ACE /* FirebaseAuth */; };
 		FBB310AA2AB9040F00980ACE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FBB310A92AB9040F00980ACE /* FirebaseFirestore */; };
 		FBB310AC2AB9040F00980ACE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FBB310AB2AB9040F00980ACE /* FirebaseFirestoreSwift */; };
@@ -63,6 +65,8 @@
 		7FA9D2022AB7CEBE007EA960 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7FA9D2042AB80304007EA960 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		7FA9D2082AB82D8D007EA960 /* Mainp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mainp.swift; sourceTree = "<group>"; };
+		FB13C3CA2ABA45FB00F347BA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		FB13C3CC2ABA460C00F347BA /* OrgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgView.swift; sourceTree = "<group>"; };
 		FBD1C3262AB9076A00383748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FBD1C3282AB90BB500383748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FBD1C3292AB90C0F00383748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				7FA9D2082AB82D8D007EA960 /* Mainp.swift */,
 				7FA9D1D72AB7CE57007EA960 /* ContentView.swift */,
 				7FA9D2022AB7CEBE007EA960 /* Login.swift */,
+				FB13C3CA2ABA45FB00F347BA /* SearchView.swift */,
+				FB13C3CC2ABA460C00F347BA /* OrgView.swift */,
 				7FA9D2042AB80304007EA960 /* Register.swift */,
 				7FA9D1D92AB7CE57007EA960 /* Item.swift */,
 				7FA9D1DB2AB7CE5A007EA960 /* Assets.xcassets */,
@@ -319,9 +325,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB13C3CB2ABA45FB00F347BA /* SearchView.swift in Sources */,
 				7FA9D1D82AB7CE57007EA960 /* ContentView.swift in Sources */,
 				7FA9D2092AB82D8D007EA960 /* Mainp.swift in Sources */,
 				7FA9D1DA2AB7CE57007EA960 /* Item.swift in Sources */,
+				FB13C3CD2ABA460C00F347BA /* OrgView.swift in Sources */,
 				7FA9D1D62AB7CE57007EA960 /* FrisaApp.swift in Sources */,
 				FBD1C32E2AB914B900383748 /* +View.swift in Sources */,
 				FBD1C32A2AB90C0F00383748 /* AppDelegate.swift in Sources */,
