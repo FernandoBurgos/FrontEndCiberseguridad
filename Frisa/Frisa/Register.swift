@@ -42,7 +42,7 @@ struct Register: View {
                         .cornerRadius(8)
                         .frame(height: 52)
                     
-                    TextField("Correo Electrónico", text: $correo).font(.system(size:20, weight: .bold)).foregroundColor(.black)
+                    /*TextField("Correo Electrónico", text: $correo).font(.system(size:20, weight: .bold)).foregroundColor(.black)
                         .frame(height: 52)
                         .frame(maxWidth: 327) //para que quede igual que en figma
                         .padding(10)
@@ -57,6 +57,7 @@ struct Register: View {
                         .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                         .cornerRadius(8)
                         .frame(height: 52)
+                     */
                     
                     Toggle(isOn: $isAgreed) {
                         Text("¿Buscas registrar una organización?").font(.system(size:16, weight: .bold))

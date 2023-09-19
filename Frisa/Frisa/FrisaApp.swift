@@ -8,8 +8,11 @@
 import SwiftUI
 import SwiftData
 
+import FirebaseCore
+
 @main
 struct FrisaApp: App {
+@UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     var body: some Scene {
         WindowGroup {

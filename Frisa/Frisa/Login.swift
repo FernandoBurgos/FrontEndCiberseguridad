@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
+import FirebaseAuth
+import Firebase
 
 struct Login: View {
     @State private var correo: String = "Correo"
     @State private var password: String = "Contraseña"
     @State private var input: String = ""
+    
+    
     
     var body: some View {
         VStack{
@@ -25,7 +31,7 @@ struct Login: View {
             }*/
             ZStack(alignment: .leading) {
                 VStack(spacing: 20) {
-                    TextField("Correo Electrónico", text: $input).font(.system(size:20, weight: .bold)).foregroundColor(.black)
+                    /*TextField("Correo Electrónico", text: $input).font(.system(size:20, weight: .bold)).foregroundColor(.black)
                         .frame(height: 52)
                                    .frame(maxWidth: 327) //para que quede igual que en figma
                                    .padding(10)
@@ -37,6 +43,8 @@ struct Login: View {
                                    .padding(10)
                                    .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                                    .cornerRadius(8)
+                     */
+                    
                     Button {
                     } label: {
                         Text("¿Olvidó su contraseña?")
@@ -44,7 +52,7 @@ struct Login: View {
                             .offset(x:21)
                         //Color azul mismo al figma
                     }
-                    Button{
+                    /*Button{
                     }label: {
                         Text("Ingresar").padding().font(.system(size:20, weight: .bold))
                             .frame(maxWidth: 303)
@@ -57,12 +65,39 @@ struct Login: View {
                         )
                             .offset(y:-40) // mover ingresar
                         
+                    }*/
+                    GoogleSignInButton {
+                        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+                        // Create Google Sign In configuration object.
+                        let config = GIDConfiguration(clientID: clientID)
+                        GIDSignIn.sharedInstance.configuration = config
+
+                        // Start the sign in flow!
+                        GIDSignIn.sharedInstance.signIn(withPresenting: getRootViewController()) { result, error in
+                          guard error == nil else {
+                            return
+                          }
+                         
+                          guard let user = result?.user,
+                            let idToken = user.idToken?.tokenString
+                          else {
+                            return
+                          }
+                          print(idToken)
+                          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                                         accessToken: user.accessToken.tokenString)
+
+                          // ...
+                        }
                     }
+                    .offset(y:-40)
+                    .padding(10)
                 }
             }
             .offset(y:-60) // mover botones de textfield
         
-            Rectangle() //linea separadora
+            /*Rectangle() //linea separadora
             .frame(height: 1)
             .foregroundColor(Color.black)
             .padding(.horizontal, 0)
@@ -80,7 +115,7 @@ struct Login: View {
                         .stroke(.black, lineWidth: 1)
                 )
             }
-            .offset(y:-30)
+            .offset(y:-30)*/
         }
     }
 }
