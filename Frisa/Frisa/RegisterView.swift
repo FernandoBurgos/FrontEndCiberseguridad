@@ -24,35 +24,29 @@ struct RegisterView: View {
     @State private var showUsernameError: Bool = false
     
     
-    func registerUser(accountToken: String, username: String) {
-        let loginUrl = URL(string: apiURL + "/oauth2/register")!
+    func registerUser(accountToken: String, username: String) async throws -> LoginResponse? {
+        let registerUrl = URL(string: apiURL + "/oauth2/register")!
         
-        var loginRequest = URLRequest(url: loginUrl)
-        loginRequest.httpMethod = "POST"
-        loginRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        loginRequest.httpBody = try? JSONEncoder().encode(["accountToken": accountToken, "username": usuario])
+        var registerRequest = URLRequest(url: registerUrl)
+        registerRequest.httpMethod = "POST"
+        registerRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        registerRequest.httpBody = try? JSONEncoder().encode(["accountToken": accountToken, "username": username])
         
-        URLSession.shared.dataTaskPublisher(for: loginRequest)
-            .tryMap { data, response -> Data in
-                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
-                return data
+        do {
+            let (data, response) = try await URLSession.shared.data(for: registerRequest)
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                let value = try JSONDecoder().decode(LoginResponse.self, from: data)
+                print("User registered:", value)
+                return value // Return the response if registration is successful
+            } else {
+                throw URLError(.badServerResponse)
             }
-            .decode(type: LoginResponse.self, decoder: JSONDecoder())
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure(_):
-                    break
-                case .finished:
-                    break
-                }
-            }, receiveValue: { value in
-                print("User logged in:", value)
-            })
-            .store(in: &cancellables)
+        } catch {
+            // Handle errors here
+            print("Error:", error)
+            throw error
+        }
     }
-    
     var body: some View {
         VStack {
             Text("Regístrate")
@@ -156,8 +150,18 @@ struct RegisterView: View {
                     showUsernameError = true
                     return
                 }
+                Task {
+                    do {
+                        if let registerResponse = try await registerUser(accountToken: accountToken, username: usuario) {
+                            KeychainService.saveAccessToken(registerResponse.accessToken)
+                            
+                            
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
                 
-                registerUser(accountToken: accountToken, username: usuario)
             } label: {
                 Text("Registrarse").padding().font(.system(size:20, weight: .bold))
                     .frame(maxWidth: 303)

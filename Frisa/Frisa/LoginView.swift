@@ -13,15 +13,22 @@ import Firebase
 import Combine
 import UIKit
 
-struct Login: View {
+struct LoginView: View {
+    @EnvironmentObject var authenticationManager: AuthenticationManager
+    
     @State private var accountToken: String = ""
     @State private var correo: String = "Correo"
     @State private var password: String = "Contraseña"
     @State private var input: String = ""
-    @State private var cancellables: Set<AnyCancellable> = []
     @State private var showRegisterView: Bool = false
     
-    func signInGoogle() async throws {
+    func signIn(credential: AuthCredential) async throws -> User {
+        let authDataResult = try await Auth.auth().signIn(with: credential)
+        
+        return authDataResult.user
+    }
+
+    func signInGoogle() async throws -> AuthCredential { // Change the return type here
         let topVc = getRootViewController()
         
         let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVc)
@@ -32,40 +39,30 @@ struct Login: View {
         let accessToken: String = gidSignInResult.user.accessToken.tokenString
         
         let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        return credential // Return the credential here
     }
-    
-    func apiLogin(accountToken: String, cancellables: inout Set<AnyCancellable>) -> Bool {
+
+    func apiLogin(accountToken: String) async throws -> LoginResponse? {
         let loginUrl = URL(string: apiURL + "/oauth2/login")!
         
-        var status: Bool = false
         var loginRequest = URLRequest(url: loginUrl)
         loginRequest.httpMethod = "POST"
         loginRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         loginRequest.httpBody = try? JSONEncoder().encode(["accountToken": accountToken])
         
-        URLSession.shared.dataTaskPublisher(for: loginRequest)
-            .tryMap { data, response -> Data in
-                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
-                return data
+        do {
+            let (data, response) = try await URLSession.shared.data(for: loginRequest)
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                let value = try JSONDecoder().decode(LoginResponse.self, from: data)
+                return value
+            } else {
+                throw URLError(.badServerResponse)
             }
-            .decode(type: LoginResponse.self, decoder: JSONDecoder())
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure(_):
-                    status = false
-                    break
-                case .finished:
-                    status = true
-                    break
-                }
-            }, receiveValue: { value in
-                print("User logged in:", value)
-            })
-            .store(in: &cancellables)
-        
-        return status
+        } catch {
+            // Handle errors here
+            print("Error:", error)
+            return nil
+        }
     }
     
     var body: some View {
@@ -119,6 +116,23 @@ struct Login: View {
                          }*/
                         GoogleSignInButton {
                             
+                            Task {
+                                do {
+                                    // Get google account token
+                                    let credentials = try await signInGoogle()
+                                    let user = try await signIn(credential: credentials)
+                                    let accountToken = try await user.getIDToken()
+                                    
+                                    // Attempt login
+                                    if let loginResponse = try await apiLogin(accountToken: accountToken) {
+                                        authenticationManager.login(accessToken: loginResponse.accessToken)
+                                    } else {
+                                        showRegisterView = true
+                                    }
+                                } catch {
+                                    print(error)
+                                }
+                            }
                         }
                         .offset(y:-40)
                         .padding(10)
@@ -151,5 +165,5 @@ struct Login: View {
 }
 
 #Preview {
-    Login()
+    LoginView()
 }

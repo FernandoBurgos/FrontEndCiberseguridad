@@ -9,13 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    var body: some View {
-        //Register()
-        Login()
-        //Mainp()
-
-    }
+    @EnvironmentObject var authenticationManager: AuthenticationManager
     
+    var body: some View {
+        if authenticationManager.isLoggedIn {
+            // Display the main app views
+            MainAppView()
+        } else {
+            // Display the login view
+            LoginView()
+        }
+    }
 }
 
 
