@@ -12,6 +12,21 @@
 				<string>com.googleusercontent.apps.929559555593-02jk1pssusdvkp158e57nn5kn12c2hec</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>osc-project-ba80e</string>
+			</array>
+		</dict>
 	</array>
+	<key>GIDClientID</key>
+	<string>929559555593-02jk1pssusdvkp158e57nn5kn12c2hec.apps.googleusercontent.com</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
