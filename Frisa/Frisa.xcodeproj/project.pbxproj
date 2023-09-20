@@ -18,6 +18,7 @@
 		7FA9D2032AB7CEBE007EA960 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2022AB7CEBE007EA960 /* Login.swift */; };
 		7FA9D2052AB80304007EA960 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2042AB80304007EA960 /* RegisterView.swift */; };
 		7FA9D2092AB82D8D007EA960 /* Mainp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2082AB82D8D007EA960 /* Mainp.swift */; };
+		FB4CC87B2ABA6C300044878B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4CC87A2ABA6C300044878B /* SearchView.swift */; };
 		FBB1F9702ABA474900CD0858 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */; };
 		FBB1F9722ABA47B900CD0858 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */; };
 		FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FBB310A72AB9040F00980ACE /* FirebaseAuth */; };
@@ -65,6 +66,7 @@
 		7FA9D2022AB7CEBE007EA960 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7FA9D2042AB80304007EA960 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7FA9D2082AB82D8D007EA960 /* Mainp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mainp.swift; sourceTree = "<group>"; };
+		FB4CC87A2ABA6C300044878B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		FBD1C3262AB9076A00383748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				7FA9D1D52AB7CE57007EA960 /* FrisaApp.swift */,
 				FBD1C32D2AB914B900383748 /* +View.swift */,
 				7FA9D2082AB82D8D007EA960 /* Mainp.swift */,
+				FB4CC87A2ABA6C300044878B /* SearchView.swift */,
 				7FA9D1D72AB7CE57007EA960 /* ContentView.swift */,
 				7FA9D2022AB7CEBE007EA960 /* Login.swift */,
 				7FA9D2042AB80304007EA960 /* RegisterView.swift */,
@@ -337,6 +340,7 @@
 				7FA9D1D82AB7CE57007EA960 /* ContentView.swift in Sources */,
 				7FA9D2092AB82D8D007EA960 /* Mainp.swift in Sources */,
 				7FA9D1DA2AB7CE57007EA960 /* Item.swift in Sources */,
+				FB4CC87B2ABA6C300044878B /* SearchView.swift in Sources */,
 				7FA9D1D62AB7CE57007EA960 /* FrisaApp.swift in Sources */,
 				FBB1F9702ABA474900CD0858 /* LoginResponse.swift in Sources */,
 				FBD1C32E2AB914B900383748 /* +View.swift in Sources */,
