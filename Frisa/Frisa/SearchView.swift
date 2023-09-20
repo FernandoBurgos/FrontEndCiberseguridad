@@ -11,6 +11,7 @@ struct SearchView: View {
     
     @State var items: [String] = ["Categoria 1", "Categoria 2", "Categoria 3", "Categoria 4", "Categoria 5", "Categoria 6", "Categoria 7", "Categoria 8"]
     @State var Selections: [String] = []
+    @State private var busqueda: String = ""
     
     var body: some View {
         GeometryReader{ geo in
@@ -20,11 +21,18 @@ struct SearchView: View {
                         VStack{
                             Text("Personaliza tu búsqueda")
                                 .font(.largeTitle)
-                            Text("Escoge segun tus necesidades")
+                            Text("Escoge según tus necesidades")
                                 .font(.caption)
                         }
                         .padding(.bottom, 50)
+                        Text("Buscar por nombre")
+                        HStack{
+                            Image(systemName: "magnifyingglass")
+                            TextField("Buscar", text: $busqueda)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
                         List{
+                            Section{
                             ForEach(items, id: \.self){item in
                                 Button{
                                     if Selections.contains(item){
@@ -47,7 +55,10 @@ struct SearchView: View {
                                     }
                                 }
                             }
-                        }
+                            } header: {
+                                Text("Categorías")
+                            }
+                    }
                         .listStyle(.insetGrouped)
                         Button{
                             
