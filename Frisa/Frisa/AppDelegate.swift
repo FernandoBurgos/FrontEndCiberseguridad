@@ -33,5 +33,3 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return false
     }
 }
-
-

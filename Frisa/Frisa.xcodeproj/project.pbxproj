@@ -19,8 +19,11 @@
 		7FA9D2032AB7CEBE007EA960 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2022AB7CEBE007EA960 /* LoginView.swift */; };
 		7FA9D2052AB80304007EA960 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2042AB80304007EA960 /* RegisterView.swift */; };
 		7FA9D2092AB82D8D007EA960 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D2082AB82D8D007EA960 /* MainAppView.swift */; };
-		FB0ADEBB2ABB8DDA005587F3 /* ManageAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0ADEBA2ABB8DDA005587F3 /* ManageAccessToken.swift */; };
+		FB0ADEBB2ABB8DDA005587F3 /* ManageTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0ADEBA2ABB8DDA005587F3 /* ManageTokens.swift */; };
 		FB0ADEBD2ABB91F5005587F3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0ADEBC2ABB91F5005587F3 /* AuthenticationManager.swift */; };
+		FB2CB6642ABCF6F30045B3C0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FB2CB6632ABCF6F30045B3C0 /* Alamofire */; };
+		FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */; };
+		FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */; };
 		FB4CC87B2ABA6C300044878B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4CC87A2ABA6C300044878B /* SearchView.swift */; };
 		FBB1F9702ABA474900CD0858 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */; };
 		FBB1F9722ABA47B900CD0858 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */; };
@@ -70,8 +73,10 @@
 		7FA9D2022AB7CEBE007EA960 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7FA9D2042AB80304007EA960 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7FA9D2082AB82D8D007EA960 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
-		FB0ADEBA2ABB8DDA005587F3 /* ManageAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccessToken.swift; sourceTree = "<group>"; };
+		FB0ADEBA2ABB8DDA005587F3 /* ManageTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTokens.swift; sourceTree = "<group>"; };
 		FB0ADEBC2ABB91F5005587F3 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenAdapter.swift; sourceTree = "<group>"; };
 		FB4CC87A2ABA6C300044878B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
@@ -88,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBB310B12AB9053500980ACE /* GoogleSignIn in Frameworks */,
+				FB2CB6642ABCF6F30045B3C0 /* Alamofire in Frameworks */,
 				FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */,
 				FBB310AE2AB9040F00980ACE /* FirebaseStorage in Frameworks */,
 				FBB310B32AB9053500980ACE /* GoogleSignInSwift in Frameworks */,
@@ -185,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				FBD1C32D2AB914B900383748 /* RootView.swift */,
-				FB0ADEBA2ABB8DDA005587F3 /* ManageAccessToken.swift */,
+				FB0ADEBA2ABB8DDA005587F3 /* ManageTokens.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -197,6 +203,8 @@
 				FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */,
 				FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */,
 				FB0ADEBC2ABB91F5005587F3 /* AuthenticationManager.swift */,
+				FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */,
+				FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 				FBB310AD2AB9040F00980ACE /* FirebaseStorage */,
 				FBB310B02AB9053500980ACE /* GoogleSignIn */,
 				FBB310B22AB9053500980ACE /* GoogleSignInSwift */,
+				FB2CB6632ABCF6F30045B3C0 /* Alamofire */,
 			);
 			productName = Frisa;
 			productReference = 7FA9D1D22AB7CE57007EA960 /* Frisa.app */;
@@ -309,6 +318,7 @@
 				FBB310A22AB9018600980ACE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FBB310A62AB9040F00980ACE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FBB310AF2AB9053500980ACE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 7FA9D1D32AB7CE57007EA960 /* Products */;
 			projectDirPath = "";
@@ -363,10 +373,12 @@
 				FBD1C32E2AB914B900383748 /* RootView.swift in Sources */,
 				FBD1C32A2AB90C0F00383748 /* AppDelegate.swift in Sources */,
 				FB0ADEBD2ABB91F5005587F3 /* AuthenticationManager.swift in Sources */,
+				FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */,
 				FBD1C3302AB91BD500383748 /* config.swift in Sources */,
-				FB0ADEBB2ABB8DDA005587F3 /* ManageAccessToken.swift in Sources */,
+				FB0ADEBB2ABB8DDA005587F3 /* ManageTokens.swift in Sources */,
 				7FA9D2032AB7CEBE007EA960 /* LoginView.swift in Sources */,
 				7F6FAE512ABBBB9B009E2F79 /* orgView2.swift in Sources */,
+				FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */,
 				7FA9D2052AB80304007EA960 /* RegisterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -728,6 +740,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.0;
+			};
+		};
 		FBB310A22AB9018600980ACE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -755,6 +775,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FB2CB6632ABCF6F30045B3C0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		FBB310A72AB9040F00980ACE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FBB310A22AB9018600980ACE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
