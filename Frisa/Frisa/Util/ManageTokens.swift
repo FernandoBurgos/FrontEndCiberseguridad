@@ -10,27 +10,52 @@ import Security
 
 struct KeychainService {
     private static let accessTokenKey = "AccessToken"
+    private static let refreshTokenKey = "RefreshToken" // Add this line
 
     static func saveAccessToken(_ accessToken: String) {
-        if let data = accessToken.data(using: .utf8) {
+        saveToken(accessToken, for: accessTokenKey)
+    }
+
+    static func saveRefreshToken(_ refreshToken: String) {  // New function
+        saveToken(refreshToken, for: refreshTokenKey)
+    }
+
+    static func getAccessToken() -> String? {
+        return getToken(for: accessTokenKey)
+    }
+
+    static func getRefreshToken() -> String? { // New function
+        return getToken(for: refreshTokenKey)
+    }
+
+    static func deleteAccessToken() {
+        deleteToken(for: accessTokenKey)
+    }
+
+    static func deleteRefreshToken() { // New function
+        deleteToken(for: refreshTokenKey)
+    }
+
+    private static func saveToken(_ token: String, for key: String) {
+        if let data = token.data(using: .utf8) {
             let query: [String: Any] = [
                 kSecClass as String: kSecClassGenericPassword,
-                kSecAttrAccount as String: accessTokenKey,
+                kSecAttrAccount as String: key,
                 kSecValueData as String: data
             ]
 
             let status = SecItemAdd(query as CFDictionary, nil)
 
             if status != errSecSuccess {
-                print("Error saving access token to Keychain: \(status)")
+                print("Error saving \(key) to Keychain: \(status)")
             }
         }
     }
 
-    static func getAccessToken() -> String? {
+    private static func getToken(for key: String) -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: accessTokenKey,
+            kSecAttrAccount as String: key,
             kSecReturnData as String: kCFBooleanTrue!,
             kSecMatchLimit as String: kSecMatchLimitOne
         ]
@@ -45,16 +70,16 @@ struct KeychainService {
         }
     }
 
-    static func deleteAccessToken() {
+    private static func deleteToken(for key: String) {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: accessTokenKey
+            kSecAttrAccount as String: key
         ]
 
         let status = SecItemDelete(query as CFDictionary)
 
         if status != errSecSuccess {
-            print("Error deleting access token from Keychain: \(status)")
+            print("Error deleting \(key) from Keychain: \(status)")
         }
     }
 }
