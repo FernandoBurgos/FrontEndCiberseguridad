@@ -56,6 +56,8 @@ struct MainAppView: View {
                         .offset(x:4)
                 }
             }
+            .offset(y:-50) // mover ingresar
+            .offset(x:4)
             ImageCarouselView(images: images)
                 .frame(height: 200).offset(y:-30)
             Text("Preguntas Frecuentes:").font(.system(size: 30, weight: .bold)).offset(x:-25, y: -35)
