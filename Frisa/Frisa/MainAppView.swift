@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainAppView: View {
-    let images = ["icon", "uv"] // agregar numero que sean de fundaciones
+    let images = ["icon", "icon"] // agregar numero que sean de fundaciones
     var body: some View {
         VStack {
             HStack {

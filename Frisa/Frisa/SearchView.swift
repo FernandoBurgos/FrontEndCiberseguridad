@@ -8,11 +8,6 @@
 import SwiftUI
 
 struct SearchView: View {
-<<<<<<< HEAD
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-=======
-    
     @State var items: [String] = ["Categoria 1", "Categoria 2", "Categoria 3", "Categoria 4", "Categoria 5", "Categoria 6", "Categoria 7", "Categoria 8"]
     @State var Selections: [String] = []
     @State private var busqueda: String = ""
@@ -106,7 +101,6 @@ struct SearchView: View {
                 
             }
         }
->>>>>>> 0bc2f010011fdbdd46b26e82d695abfb0ca80a35
     }
 }
 
