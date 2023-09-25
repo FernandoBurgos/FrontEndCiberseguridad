@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F6FAE512ABBBB9B009E2F79 /* orgView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FAE502ABBBB9B009E2F79 /* orgView2.swift */; };
+		7F91B02D2AC23A4B002713A3 /* PreguntasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F91B02C2AC23A4B002713A3 /* PreguntasView.swift */; };
 		7FA9D1D62AB7CE57007EA960 /* FrisaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D1D52AB7CE57007EA960 /* FrisaApp.swift */; };
 		7FA9D1D82AB7CE57007EA960 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D1D72AB7CE57007EA960 /* ContentView.swift */; };
 		7FA9D1DA2AB7CE57007EA960 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA9D1D92AB7CE57007EA960 /* Item.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		7F6FAE502ABBBB9B009E2F79 /* orgView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orgView2.swift; sourceTree = "<group>"; };
+		7F91B02C2AC23A4B002713A3 /* PreguntasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntasView.swift; sourceTree = "<group>"; };
 		7FA9D1D22AB7CE57007EA960 /* Frisa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frisa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA9D1D52AB7CE57007EA960 /* FrisaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrisaApp.swift; sourceTree = "<group>"; };
 		7FA9D1D72AB7CE57007EA960 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				7FA9D2022AB7CEBE007EA960 /* LoginView.swift */,
 				7FA9D2042AB80304007EA960 /* RegisterView.swift */,
 				7F6FAE502ABBBB9B009E2F79 /* orgView2.swift */,
+				7F91B02C2AC23A4B002713A3 /* PreguntasView.swift */,
 				7FA9D1DB2AB7CE5A007EA960 /* Assets.xcassets */,
 				7FA9D1DD2AB7CE5A007EA960 /* Frisa.entitlements */,
 				FBD1C3262AB9076A00383748 /* GoogleService-Info.plist */,
@@ -367,6 +370,7 @@
 				7FA9D1D82AB7CE57007EA960 /* ContentView.swift in Sources */,
 				7FA9D2092AB82D8D007EA960 /* MainAppView.swift in Sources */,
 				7FA9D1DA2AB7CE57007EA960 /* Item.swift in Sources */,
+				7F91B02D2AC23A4B002713A3 /* PreguntasView.swift in Sources */,
 				FB4CC87B2ABA6C300044878B /* SearchView.swift in Sources */,
 				7FA9D1D62AB7CE57007EA960 /* FrisaApp.swift in Sources */,
 				FBB1F9702ABA474900CD0858 /* LoginResponse.swift in Sources */,
