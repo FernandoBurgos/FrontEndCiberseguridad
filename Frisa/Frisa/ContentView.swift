@@ -17,14 +17,14 @@ struct ContentView: View {
             //MainAppView()
             //RegisterView(accountToken: "")
             //SearchView()
-            //orgView2()
+            orgView2()
         } else {
             // Display the login view
             //LoginView()
-            //MainAppView()
             //RegisterView(accountToken: "")
             //SearchView()
-            //orgView2()
+            orgView2()
+            //MainAppView()
         }
     }
 }
