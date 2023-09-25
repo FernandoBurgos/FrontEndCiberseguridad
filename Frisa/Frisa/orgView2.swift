@@ -72,6 +72,7 @@ struct orgView2: View {
                     HStack {
                         //mover los icons
                         Button {
+                            print("funciona")
                         } label: {
                             Image("FaceIcon").resizable()
                                 .scaledToFill()
@@ -80,6 +81,7 @@ struct orgView2: View {
                             
                         }
                         Button {
+                            print("si funciona")
                         } label: {
                             Image("instaIcon").resizable()
                                 .scaledToFill()
