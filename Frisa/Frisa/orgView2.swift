@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct orgView2: View {
+    let images = ["Arena", "icon"] // imagenes del carrusel
     var body: some View {
         GeometryReader{geo in
             ZStack{
@@ -43,9 +44,7 @@ struct orgView2: View {
                 }
                 .offset(y: geo.size.height/1.95)
                 VStack{
-                    Image("Arena")
-                        .resizable()
-                        .frame(height: 250)
+                    ImageCarouselView(images: images) //250?
                         Text("Tag")
                             .frame(width: 100)
                             .overlay(RoundedRectangle(cornerRadius: 30)

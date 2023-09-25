@@ -68,7 +68,7 @@ struct MainAppView: View {
             VStack {
                 ZStack {
                     Button(action: {
-                        // Your button action for the image button here
+                        // lo q sea
                     }) {
                         Image("icon")
                             .resizable()
@@ -77,11 +77,11 @@ struct MainAppView: View {
                             .clipped()
                     }
                 }
-                .offset(y: -35) // Offset for the image button
+                .offset(y: -35) //para q se mueva el boton preguntas
 
                 ZStack {
                     Button(action: {
-                        // Your button action for "Ver más" here
+                        // whatev
                     }) {
                         Text("Ver más")
                             .padding()
