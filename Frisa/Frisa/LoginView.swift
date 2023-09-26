@@ -70,7 +70,7 @@ struct LoginView: View {
                     }
                     .padding(.horizontal, 20)
                 }
-            }.sheet(isPresented: $showRegisterView, content: { RegisterView(accountToken: accountToken) })
+            }.sheet(isPresented: $showRegisterView, content: { RegisterView(accountToken: accountToken, tag: "", tagsarr: []) })
         }
     }
 }

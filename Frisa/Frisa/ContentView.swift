@@ -15,15 +15,15 @@ struct ContentView: View {
         if authenticationManager.isLoggedIn {
             // Display the main app views
             //MainAppView()
-            //RegisterView(accountToken: "")
+            RegisterView(accountToken: "", tag: "", tagsarr: [])
             //SearchView()
-            orgView2()
+            //orgView2()
         } else {
             // Display the login view
             //LoginView()
-            //RegisterView(accountToken: "")
+            RegisterView(accountToken: "", tag: "", tagsarr: [])
             //SearchView()
-            orgView2()
+            //orgView2()
             //MainAppView()
         }
     }

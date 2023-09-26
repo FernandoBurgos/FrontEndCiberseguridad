@@ -45,14 +45,30 @@ struct orgView2: View {
                 .offset(y: geo.size.height/1.95)
                 VStack{
                     ImageCarouselView(images: images) //250?
-                        Text("Tag")
-                            .frame(width: 100)
-                            .overlay(RoundedRectangle(cornerRadius: 30)
-                                .stroke(style: /*@START_MENU_TOKEN@*/StrokeStyle()/*@END_MENU_TOKEN@*/))
-                            Text("Tag")
-                            .frame(width: 100)
-                            .overlay(RoundedRectangle(cornerRadius: 30)
-                                .stroke(style: StrokeStyle()))
+                    ScrollView(.horizontal){
+                        HStack{
+                            Text("Tag1")
+                                .frame(width: 100)
+                                .overlay(RoundedRectangle(cornerRadius: 30)
+                                    .stroke(style: StrokeStyle()))
+                            Text("Tag2")
+                                .frame(width: 100)
+                                .overlay(RoundedRectangle(cornerRadius: 30)
+                                    .stroke(style: StrokeStyle()))
+                            Text("Tag3")
+                                .frame(width: 100)
+                                .overlay(RoundedRectangle(cornerRadius: 30)
+                                    .stroke(style: StrokeStyle()))
+                            Text("Tag4")
+                                .frame(width: 100)
+                                .overlay(RoundedRectangle(cornerRadius: 30)
+                                    .stroke(style: StrokeStyle()))
+                            Text("Tag5")
+                                .frame(width: 100)
+                                .overlay(RoundedRectangle(cornerRadius: 30)
+                                    .stroke(style: StrokeStyle()))
+                        }
+                    }
                     Divider()
                         .overlay(.black)
                         .padding(.top, 10)

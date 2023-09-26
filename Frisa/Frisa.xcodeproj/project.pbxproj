@@ -38,6 +38,8 @@
 		FBD1C32A2AB90C0F00383748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD1C3292AB90C0F00383748 /* AppDelegate.swift */; };
 		FBD1C32E2AB914B900383748 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD1C32D2AB914B900383748 /* RootView.swift */; };
 		FBD1C3302AB91BD500383748 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD1C32F2AB91BD500383748 /* config.swift */; };
+		FBFB14CF2AC2414B0048FAA4 /* newTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB14CE2AC2414B0048FAA4 /* newTag.swift */; };
+		FBFB14D12AC2511C0048FAA4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB14D02AC2511C0048FAA4 /* Tag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		FBD1C3292AB90C0F00383748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD1C32D2AB914B900383748 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		FBD1C32F2AB91BD500383748 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		FBFB14CE2AC2414B0048FAA4 /* newTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTag.swift; sourceTree = "<group>"; };
+		FBFB14D02AC2511C0048FAA4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,7 @@
 				7FA9D1D72AB7CE57007EA960 /* ContentView.swift */,
 				7FA9D2022AB7CEBE007EA960 /* LoginView.swift */,
 				7FA9D2042AB80304007EA960 /* RegisterView.swift */,
+				FBFB14CE2AC2414B0048FAA4 /* newTag.swift */,
 				7F6FAE502ABBBB9B009E2F79 /* orgView2.swift */,
 				7F91B02C2AC23A4B002713A3 /* PreguntasView.swift */,
 				7FA9D1DB2AB7CE5A007EA960 /* Assets.xcassets */,
@@ -208,6 +213,7 @@
 				FB0ADEBC2ABB91F5005587F3 /* AuthenticationManager.swift */,
 				FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */,
 				FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */,
+				FBFB14D02AC2511C0048FAA4 /* Tag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBB1F9722ABA47B900CD0858 /* ApiResponse.swift in Sources */,
+				FBFB14CF2AC2414B0048FAA4 /* newTag.swift in Sources */,
 				7FA9D1D82AB7CE57007EA960 /* ContentView.swift in Sources */,
 				7FA9D2092AB82D8D007EA960 /* MainAppView.swift in Sources */,
 				7FA9D1DA2AB7CE57007EA960 /* Item.swift in Sources */,
@@ -377,6 +384,7 @@
 				FBD1C32E2AB914B900383748 /* RootView.swift in Sources */,
 				FBD1C32A2AB90C0F00383748 /* AppDelegate.swift in Sources */,
 				FB0ADEBD2ABB91F5005587F3 /* AuthenticationManager.swift in Sources */,
+				FBFB14D12AC2511C0048FAA4 /* Tag.swift in Sources */,
 				FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */,
 				FBD1C3302AB91BD500383748 /* config.swift in Sources */,
 				FB0ADEBB2ABB8DDA005587F3 /* ManageTokens.swift in Sources */,
