@@ -50,6 +50,7 @@ class AccessTokenAdapter: RequestInterceptor {
                     
                     completion(true, tokenResponse.newAccessToken)
                 case .failure(let error):
+                    logout()
                     print("Error refreshing token: \(error)")
                     completion(false, nil)
                 }

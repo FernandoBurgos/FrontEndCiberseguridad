@@ -14,8 +14,6 @@ import Combine
 import UIKit
 
 struct LoginView: View {
-    @EnvironmentObject var authenticationManager: AuthenticationManager
-    
     @State private var accountToken: String = ""
     @State private var correo: String = "Correo"
     @State private var password: String = "Contraseña"
@@ -52,11 +50,11 @@ struct LoginView: View {
                                 do {
                                     // Get google account token
                                     let credentials = try await signInGoogle()
-                                    let user = try await authenticationManager.signIn(credential: credentials)
+                                    let user = try await signIn(credential: credentials)
                                     let accountToken = try await user.getIDToken()
                                     
                                     // Attempt login
-                                    let loginResponse = try await authenticationManager.apiLogin(accountToken: accountToken)
+                                    let loginResponse = try await apiLogin(accountToken: accountToken)
                                     
                                     print(loginResponse)
                                     if !loginResponse {

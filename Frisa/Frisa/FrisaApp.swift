@@ -13,12 +13,9 @@ import FirebaseCore
 @main
 struct FrisaApp: App {
 @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var authenticationManager = AuthenticationManager()
-
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(authenticationManager)
         }
         .modelContainer(for: Item.self)
     }

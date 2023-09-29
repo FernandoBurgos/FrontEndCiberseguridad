@@ -9,19 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @EnvironmentObject var authenticationManager: AuthenticationManager
-    
     var body: some View {
-        if authenticationManager.isLoggedIn {
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
             // Display the main app views
-            //MainAppView()
-            RegisterView(accountToken: "", tag: "", tagsarr: [])
+            MainAppView()
+            //RegisterView(accountToken: "", tag: "", tagsarr: [])
             //SearchView()
             //orgView2()
         } else {
             // Display the login view
-            //LoginView()
-            RegisterView(accountToken: "", tag: "", tagsarr: [])
+            LoginView()
+            //RegisterView(accountToken: "", tag: "", tagsarr: [])
             //SearchView()
             //orgView2()
             //MainAppView()
