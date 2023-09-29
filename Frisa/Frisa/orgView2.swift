@@ -9,6 +9,8 @@ import SwiftUI
 
 struct orgView2: View {
     let images = ["Arena", "icon"] // imagenes del carrusel
+    @State private var ratingOrg: Int = 0 // default
+    @State private var busqueda: String = ""
     var body: some View {
         GeometryReader{geo in
             ZStack{
@@ -82,7 +84,42 @@ struct orgView2: View {
                         .frame(height: geo.size.height/30)
                     Divider()
                         .overlay(.black)
-                        .padding(.bottom, 20)
+                        .padding(.bottom, 0)
+                    ScrollView(.vertical) {
+                        VStack {
+                            Text("Opinión").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).offset(y:-7)
+                            ratingView(rating: $ratingOrg).offset(x:-124).offset(y:-12)
+                            HStack{
+                                Image(systemName: "person")
+                                TextField("Agrega un comentario", text: $busqueda)
+                                    .padding(.horizontal)
+                                    .frame(height: 25)
+                                
+                                Button(action: {
+                                    print("Se tocó el post")
+                                }) {
+                                    Text("Post")
+                                        .padding(.horizontal)
+                                        .foregroundColor(.white)
+                                        .background(Color.blue)
+                                        .cornerRadius(10)
+                                }
+                            }
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 25).stroke(Color.black, lineWidth: 1))
+                            .clipShape(RoundedRectangle(cornerRadius: 25))
+                            //SECCION COMMENTS
+                            CommentView(starRating:4)
+                            CommentView(starRating:4)
+                            CommentView(starRating:4)
+                        }
+                    }
+                    .frame(height:200)
+                    //Spacer()
+                      //  .frame(height: geo.size.height/30).padding(.top)
+                    Divider()
+                        .overlay(.black)
+                        .padding(.bottom, -20) // texto
                     Text("Unidad Country \nAntonio Caso 600, Valle del Contry, Guadalupe, Nuevo León, C.P. 67174\n(+52) 81 8348 8000 \ninformes@autismoarena.org.mx")
                     Spacer()
                     HStack {
@@ -118,6 +155,7 @@ struct orgView2: View {
         }
     }
 }
+
 
 #Preview {
     orgView2()
