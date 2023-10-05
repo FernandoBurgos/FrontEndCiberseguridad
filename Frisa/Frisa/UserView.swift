@@ -10,7 +10,7 @@ import PhotosUI
 
 struct UserView: View {
     
-    @State var username: String = "hola"
+    @State var username: String = "Sin Nombre"
     @State var Orgname: String = ""
     @State var desc: String = ""
     @State var email: String = ""
