@@ -22,8 +22,6 @@ struct RegisterView: View {
     @State var tag: String
     @State var tagsarr: [Tag]
     
-    
-    
     func registerUser(accountToken: String, username: String) async throws -> LoginResponse? {
         let registerUrl = URL(string: apiURL + "/oauth2/register")!
         

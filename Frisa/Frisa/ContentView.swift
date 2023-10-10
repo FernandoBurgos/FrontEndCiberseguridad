@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "isLoggedIn")
+    @State private var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "isLoggedIn")
     
     var body: some View {
-        if isLoggedIn {
-            // Display the main app views
-            MainAppView()
-        } else {
-            // Display the login view
-            LoginView()
+        Group {
+            if isLoggedIn {
+                MainAppView()
+            } else {
+                LoginView()
+            }
         }
-        Button("test") {
-            print(UserDefaults.standard.bool(forKey: "isLoggedIn"))
+        .onReceive(NotificationCenter.default.publisher(for: UserDefaults.didChangeNotification)) { _ in
+            self.isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
         }
     }
 }
-
 
 #Preview {
     ContentView()

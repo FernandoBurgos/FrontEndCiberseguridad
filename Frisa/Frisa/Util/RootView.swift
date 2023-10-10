@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View{
+extension View {
     func getRootViewController() -> UIViewController{
         guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{
             return.init()
