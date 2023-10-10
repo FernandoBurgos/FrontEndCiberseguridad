@@ -29,6 +29,8 @@
 		FB73F47B2ACF72BB00D9D983 /* ratingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73F47A2ACF72BB00D9D983 /* ratingView.swift */; };
 		FB73F47D2ACF730F00D9D983 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73F47C2ACF730F00D9D983 /* CommentView.swift */; };
 		FB94B6902AC25D3D00C1ABAF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94B68F2AC25D3D00C1ABAF /* UserView.swift */; };
+		FB9799DD2AD61738004F3943 /* favoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799DC2AD61738004F3943 /* favoriteView.swift */; };
+		FB9799DF2AD61763004F3943 /* resultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799DE2AD61763004F3943 /* resultsView.swift */; };
 		FBB1F9702ABA474900CD0858 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */; };
 		FBB1F9722ABA47B900CD0858 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */; };
 		FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FBB310A72AB9040F00980ACE /* FirebaseAuth */; };
@@ -90,6 +92,8 @@
 		FB73F47A2ACF72BB00D9D983 /* ratingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ratingView.swift; sourceTree = "<group>"; };
 		FB73F47C2ACF730F00D9D983 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		FB94B68F2AC25D3D00C1ABAF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		FB9799DC2AD61738004F3943 /* favoriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = favoriteView.swift; path = ../../../../../Downloads/favoriteView.swift; sourceTree = "<group>"; };
+		FB9799DE2AD61763004F3943 /* resultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resultsView.swift; path = ../../../../../Downloads/resultsView.swift; sourceTree = "<group>"; };
 		FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		FBB565652AC636B6000A3C58 /* OrgRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgRegister.swift; sourceTree = "<group>"; };
@@ -165,10 +169,12 @@
 				7FA9D1D52AB7CE57007EA960 /* FrisaApp.swift */,
 				7FA9D2082AB82D8D007EA960 /* MainAppView.swift */,
 				FB4CC87A2ABA6C300044878B /* SearchView.swift */,
+				FB9799DC2AD61738004F3943 /* favoriteView.swift */,
 				7FA9D1D72AB7CE57007EA960 /* ContentView.swift */,
 				7FA9D2022AB7CEBE007EA960 /* LoginView.swift */,
 				7FA9D2042AB80304007EA960 /* RegisterView.swift */,
 				FBB565652AC636B6000A3C58 /* OrgRegister.swift */,
+				FB9799DE2AD61763004F3943 /* resultsView.swift */,
 				FB94B68F2AC25D3D00C1ABAF /* UserView.swift */,
 				FBB565672AC6405F000A3C58 /* UserConfig.swift */,
 				FBFB14CE2AC2414B0048FAA4 /* newTag.swift */,
@@ -388,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBB1F9722ABA47B900CD0858 /* ApiResponse.swift in Sources */,
+				FB9799DF2AD61763004F3943 /* resultsView.swift in Sources */,
 				FBFB14CF2AC2414B0048FAA4 /* newTag.swift in Sources */,
 				7FA9D1D82AB7CE57007EA960 /* ContentView.swift in Sources */,
 				7FA9D2092AB82D8D007EA960 /* MainAppView.swift in Sources */,
@@ -405,6 +412,7 @@
 				FB94B6902AC25D3D00C1ABAF /* UserView.swift in Sources */,
 				FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */,
 				FBD1C3302AB91BD500383748 /* config.swift in Sources */,
+				FB9799DD2AD61738004F3943 /* favoriteView.swift in Sources */,
 				FB73F47D2ACF730F00D9D983 /* CommentView.swift in Sources */,
 				FB0ADEBB2ABB8DDA005587F3 /* ManageTokens.swift in Sources */,
 				FB73F47B2ACF72BB00D9D983 /* ratingView.swift in Sources */,
