@@ -9,6 +9,9 @@ import Foundation
 import FirebaseAuth
 import Alamofire
 
+
+
+
 func signIn(credential: AuthCredential) async throws -> User {
     let authDataResult = try await Auth.auth().signIn(with: credential)
     

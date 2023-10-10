@@ -6,23 +6,20 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
+    @State var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "isLoggedIn")
+    
     var body: some View {
-        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+        if isLoggedIn {
             // Display the main app views
             MainAppView()
-            //RegisterView(accountToken: "", tag: "", tagsarr: [])
-            //SearchView()
-            //orgView2()
         } else {
             // Display the login view
             LoginView()
-            //RegisterView(accountToken: "", tag: "", tagsarr: [])
-            //SearchView()
-            //orgView2()
-            //MainAppView()
+        }
+        Button("test") {
+            print(UserDefaults.standard.bool(forKey: "isLoggedIn"))
         }
     }
 }

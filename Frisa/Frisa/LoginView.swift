@@ -19,6 +19,7 @@ struct LoginView: View {
     @State private var password: String = "Contraseña"
     @State private var input: String = ""
     @State private var showRegisterView: Bool = false
+    @AppStorage("isLoggedIn") var isLoggedIn = false
 
     func signInGoogle() async throws -> AuthCredential { // Change the return type here
         let topVc = getRootViewController()
@@ -56,7 +57,7 @@ struct LoginView: View {
                                     // Attempt login
                                     let loginResponse = try await apiLogin(accountToken: accountToken)
                                     
-                                    print(loginResponse)
+                                    print(UserDefaults.standard.bool(forKey: "isLoggedIn"))
                                     if !loginResponse {
                                         showRegisterView = true
                                     }

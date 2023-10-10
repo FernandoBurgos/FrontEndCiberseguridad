@@ -40,17 +40,38 @@ struct KeychainService {
         if let data = token.data(using: .utf8) {
             let query: [String: Any] = [
                 kSecClass as String: kSecClassGenericPassword,
-                kSecAttrAccount as String: key,
-                kSecValueData as String: data
+                kSecAttrAccount as String: key
             ]
 
-            let status = SecItemAdd(query as CFDictionary, nil)
+            // Check if the item already exists
+            if SecItemCopyMatching(query as CFDictionary, nil) == errSecSuccess {
+                // If it exists, update it
+                let attributesToUpdate: [String: Any] = [
+                    kSecValueData as String: data
+                ]
 
-            if status != errSecSuccess {
-                print("Error saving \(key) to Keychain: \(status)")
+                let status = SecItemUpdate(query as CFDictionary, attributesToUpdate as CFDictionary)
+
+                if status != errSecSuccess {
+                    print("Error updating \(key) in Keychain: \(status)")
+                }
+            } else {
+                // If it doesn't exist, add it
+                let query: [String: Any] = [
+                    kSecClass as String: kSecClassGenericPassword,
+                    kSecAttrAccount as String: key,
+                    kSecValueData as String: data
+                ]
+
+                let status = SecItemAdd(query as CFDictionary, nil)
+
+                if status != errSecSuccess {
+                    print("Error saving \(key) to Keychain: \(status)")
+                }
             }
         }
     }
+
 
     private static func getToken(for key: String) -> String? {
         let query: [String: Any] = [
