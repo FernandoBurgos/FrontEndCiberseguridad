@@ -58,14 +58,9 @@ struct UserView: View {
                             .tint(.black)
                         }
                         HStack{
-                            Text("Favoritos")
-                            Spacer()
-                            Image(systemName: "arrow.right")
-                        }
-                        HStack{
-                            Text("Historial")
-                            Spacer()
-                            Image(systemName: "arrow.right")
+                            NavigationLink("Favoritos"){
+                                favoriteView()
+                            }
                         }
                         HStack{
                             NavigationLink("Registra tu organización"){

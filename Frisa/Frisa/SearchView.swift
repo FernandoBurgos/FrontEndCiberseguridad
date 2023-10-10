@@ -60,28 +60,28 @@ struct SearchView: View {
                                 }
                             }
                             .listStyle(.insetGrouped)
-                            NavigationLink(destination:{
-                                orgView2()
-                            }, label: {
+                            NavigationLink{
+                                resultsView()
+                            } label: {
                                 Text("Buscar")
-                            })
+                            }
                             .buttonStyle(.bordered)
-                            Spacer()
-                                .frame(height: geo.size.height/16)
+//                            Spacer()
+//                                .frame(height: geo.size.height/16)
                         }
                         .frame(height: geo.size.height/1.1)
                         Color(red: 253/255, green: 247/255, blue: 173/255)
                     }
                     HStack(spacing: geo.size.width/3) {
                         //mover los icons
-                        Button {
-                        } label: {
-                            Image(systemName: "bell").resizable()
+                        NavigationLink(destination: {MainAppView()},
+                        label:
+                            {
+                                Image(systemName: "bell").resizable()
                                 .scaledToFill()
                                 .frame(width: 20, height: 20)
                                 .clipped()
-                            
-                        }
+                            })
                         Button {
                         } label: {
                             Image(systemName: "bell").resizable()
