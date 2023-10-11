@@ -18,7 +18,7 @@ struct resultsView: View {
         NavigationStack{
             GeometryReader{geo in
                 VStack{
-//                    NavigationView{
+                    NavigationView{
                     ScrollView(.vertical){
                             LazyVGrid(columns: layout, spacing: 20) {
                                 ForEach(0..<symbols.count) { index in
@@ -35,13 +35,40 @@ struct resultsView: View {
                                     }
                                 }
                             }
+                            .navigationTitle("Resultados")
                         }
-//                    }
-                    .navigationTitle("Resultados")
+                    }
                     .frame(height: geo.size.height*12/13)
-                    menuBarView()
+                    ZStack{
+                        Color(red: 253/255, green: 247/255, blue: 173/255)
+                        HStack(spacing: geo.size.width/3) {
+                            //mover los icons
+                            Button {
+                            } label: {
+                                Image(systemName: "bell").resizable()
+                                    .scaledToFill()
+                                    .frame(width: 20, height: 20)
+                                    .clipped()
+                                
+                            }
+                            Button {
+                            } label: {
+                                Image(systemName: "bell").resizable()
+                                    .scaledToFill()
+                                    .frame(width: 20, height: 20)
+                                    .clipped()
+                            }
+                            Button {
+                            } label: {
+                                Image(systemName: "bell").resizable()
+                                    .scaledToFill()
+                                    .frame(width: 20, height: 20)
+                                    .clipped()
+                                
+                            }
+                        }
+                    }
                 }
-//                .navigationBarBackButtonHidden(true)
 //                .sheet(isPresented: $presentOrg, content: {
 //                    Frisa.orgView2()
 //                })

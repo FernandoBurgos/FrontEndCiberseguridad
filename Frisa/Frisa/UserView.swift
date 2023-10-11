@@ -74,10 +74,37 @@ struct UserView: View {
                         Text("Cerrar Sesión")
                     }
                     .tint(.red)
-                    menuBarView()
+                    ZStack{
+                        Color(red: 253/255, green: 247/255, blue: 173/255)
+                        HStack(spacing: geo.size.width/3) {
+                            //mover los icons
+                            Button {
+                            } label: {
+                                Image(systemName: "bell").resizable()
+                                    .scaledToFill()
+                                    .frame(width: 20, height: 20)
+                                    .clipped()
+                                
+                            }
+                            Button {
+                            } label: {
+                                Image(systemName: "bell").resizable()
+                                    .scaledToFill()
+                                    .frame(width: 20, height: 20)
+                                    .clipped()
+                            }
+                            Button {
+                            } label: {
+                                Image(systemName: "bell").resizable()
+                                    .scaledToFill()
+                                    .frame(width: 20, height: 20)
+                                    .clipped()
+                                
+                            }
+                        }
+                    }
                     .frame(height: 50)
                 }
-                .navigationBarBackButtonHidden(true)
                 .onChange(of: avatarItem) { _ in
                     Task {
                         if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
