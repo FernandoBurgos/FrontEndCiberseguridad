@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
     @State var accountToken: String
+    @State var clicked: Bool = false
     //@State private var cancellables: Set<AnyCancellable> = []
     @State private var usuario: String = ""
     @State private var orga: String = ""
@@ -76,34 +77,47 @@ struct RegisterView: View {
                         .toggleStyle(CheckboxStyle())
                         .padding(.top, 20)
                     if isAgreed {
-                        OrgRegister(orga: $orga, desc: $desc, email: $email, newTag: $newTag, tagsarr: $tagsarr, categorySelected: $categorySelected)
-                    }
-                    Button {
-                        if usuario.count < 2 {
-                            showUsernameError = true
-                            return
-                        }
-                        Task {
-                            do {
-                                if let registerResponse = try await registerUser(accountToken: accountToken, username: usuario) {
-                                    KeychainService.saveAccessToken(registerResponse.accessToken)
-                                    
-                                    
-                                }
-                            } catch {
-                                print(error)
+                        OrgRegister(clicked: $clicked, orga: $orga, desc: $desc, email: $email, newTag: $newTag, tagsarr: $tagsarr, categorySelected: $categorySelected)
+                    } else {
+                        Button {
+                            if usuario.count < 2 {
+                                showUsernameError = true
+                                return
                             }
+                            Task {
+                                do {
+                                    if let registerResponse = try await registerUser(accountToken: accountToken, username: usuario) {
+                                        KeychainService.saveAccessToken(registerResponse.accessToken)
+                                        
+                                    }
+                                } catch {
+                                    print(error)
+                                }
+                            }
+                            
+                        } label: {
+                            Text("Registrarse").padding().font(.system(size:20, weight: .bold))
+                                .frame(maxWidth: 303)
+                                .frame(height: 38)
+                                .foregroundColor(.black)
+                                .background(RoundedRectangle(
+                                    cornerRadius: 30).fill(Color(red: 253/255, green: 245/255, blue: 247/255)).stroke(.black, lineWidth: 1))
                         }
-                        
-                    } label: {
-                        Text("Registrarse").padding().font(.system(size:20, weight: .bold))
-                            .frame(maxWidth: 303)
-                            .frame(height: 38)
-                            .foregroundColor(.black)
-                            .background(RoundedRectangle(
-                                cornerRadius: 30).fill(Color(red: 253/255, green: 245/255, blue: 247/255)).stroke(.black, lineWidth: 1))
+                        .padding(.top, 10)
                     }
-                    .padding(.top, 10)
+                    if clicked {
+                        Text("")
+                            .task{
+                                do {
+                                    if let registerResponse = try await registerUser(accountToken: accountToken, username: usuario) {
+                                        KeychainService.saveAccessToken(registerResponse.accessToken)
+                                        
+                                    }
+                                } catch {
+                                    print(error)
+                                }
+                            }
+                    }
                 }
             }
         }

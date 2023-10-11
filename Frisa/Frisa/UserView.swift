@@ -11,6 +11,7 @@ import PhotosUI
 struct UserView: View {
     
     @State var username: String = "Sin Nombre"
+    @State var clicked: Bool = false
     @State var Orgname: String = ""
     @State var desc: String = ""
     @State var email: String = ""
@@ -64,7 +65,7 @@ struct UserView: View {
                         }
                         HStack{
                             NavigationLink("Registra tu organización"){
-                                OrgRegister(orga: $Orgname, desc: $desc, email: $email, newTag: $newtag, tagsarr: $tagarr, categorySelected: $categorySelected)
+                                OrgRegister(clicked: $clicked, orga: $Orgname, desc: $desc, email: $email, newTag: $newtag, tagsarr: $tagarr, categorySelected: $categorySelected)
                             }
                         }
                         

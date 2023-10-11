@@ -9,12 +9,15 @@ import SwiftUI
 
 struct OrgRegister: View {
     
+    @State var accountToken: String = ""
+    @Binding var clicked: Bool
     @Binding var orga: String
     @Binding var desc: String
     @Binding var email: String
     @Binding var newTag: Bool
     @Binding var tagsarr: [Tag]
     @Binding var categorySelected: String
+    @State private var showUsernameError: Bool = false
     @State var tag: String = ""
     
     var body: some View {
@@ -115,6 +118,30 @@ struct OrgRegister: View {
             }
             
             Text("Los administradores se pondrán en contacto\ncontigo para el registro de la organización.").font(.system(size:14, weight: .bold)).foregroundColor(.gray).padding(.top, 15)
+            
+            Button {
+                if orga.count < 2 {
+                    showUsernameError = true
+                    return
+                }
+                Task {
+                    do {
+                        print("Funcion para registrar organizacion")
+                        clicked.toggle()
+                    } catch {
+                        print(error)
+                    }
+                }
+                
+            } label: {
+                Text("Registrarse").padding().font(.system(size:20, weight: .bold))
+                    .frame(maxWidth: 303)
+                    .frame(height: 38)
+                    .foregroundColor(.black)
+                    .background(RoundedRectangle(
+                        cornerRadius: 30).fill(Color(red: 253/255, green: 245/255, blue: 247/255)).stroke(.black, lineWidth: 1))
+            }
+            .padding(.top, 10)
         }
         .sheet(isPresented: $newTag, content: {
             Frisa.newTag(tag: $tag, tagsarr: $tagsarr, newTag: $newTag)
@@ -123,5 +150,5 @@ struct OrgRegister: View {
     }
 }
 #Preview {
-    OrgRegister(orga: .constant(""), desc: .constant(""), email: .constant(""), newTag: .constant(false), tagsarr: .constant([]), categorySelected: .constant("Selecciona una categoría"))
+    OrgRegister(clicked: .constant(false), orga: .constant(""), desc: .constant(""), email: .constant(""), newTag: .constant(false), tagsarr: .constant([]), categorySelected: .constant("Selecciona una categoría"))
 }
