@@ -13,7 +13,7 @@ struct SearchView: View {
     @State private var busqueda: String = ""
     
     var body: some View {
-        NavigationStack{
+        NavigationView{
             GeometryReader{ geo in
                 ZStack{
                     VStack{
@@ -67,14 +67,40 @@ struct SearchView: View {
                             }
                             .buttonStyle(.bordered)
 //                            Spacer()
-//                          .frame(height: geo.size.height/16)
+//                                .frame(height: geo.size.height/16)
                         }
-                        .frame(height: geo.size.height*12/13)
-                        menuBarView()
+                        .frame(height: geo.size.height/1.1)
+                        Color(red: 253/255, green: 247/255, blue: 173/255)
                     }
+                    HStack(spacing: geo.size.width/3) {
+                        //mover los icons
+                        NavigationLink(destination: {MainAppView()},
+                        label:
+                            {
+                                Image(systemName: "bell").resizable()
+                                .scaledToFill()
+                                .frame(width: 20, height: 20)
+                                .clipped()
+                            })
+                        Button {
+                        } label: {
+                            Image(systemName: "bell").resizable()
+                                .scaledToFill()
+                                .frame(width: 20, height: 20)
+                                .clipped()
+                        }
+                        Button {
+                        } label: {
+                            Image(systemName: "bell").resizable()
+                                .scaledToFill()
+                                .frame(width: 20, height: 20)
+                                .clipped()
+                            
+                        }
+                    }
+                    .offset(y: geo.size.height/2.15)
                     
                 }
-                .navigationBarBackButtonHidden(true)
             }
         }
     }
