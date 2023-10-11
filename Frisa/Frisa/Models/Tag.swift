@@ -8,8 +8,9 @@
 import Foundation
 import Alamofire
 
-struct Tag {
+struct Tag:Identifiable {
     var name: String
+    var id = UUID()
 }
 
 func createTag(tag: Tag) async throws -> Bool {

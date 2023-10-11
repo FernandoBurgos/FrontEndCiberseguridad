@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct PreguntasView: View {
-    let images = ["Arena", "icon"]
+    let images = ["Arena"]
+    @State private var showPDFViewer = false
+    @State private var showPDFViewer2 = false
+    @State private var showPDFViewer3 = false
     var body: some View {
         GeometryReader{geo in
             VStack{
@@ -18,23 +21,35 @@ struct PreguntasView: View {
                         .frame(width: 50, height: 50) // icono se cambiara, es deco.
                         .clipped().offset(y:-150).offset(x:130)
                     ZStack {
-                        Button(){
+                        Button{
+                            showPDFViewer = true
                         } label: {
                             ImageCarouselView(images: images).frame(height: 140)
+                        }
+                        .sheet(isPresented: $showPDFViewer){
+                            PDFViewer(fileName: "sample1")
                         }
                     }
                     .offset(y:-150)
                     ZStack {
                         Button {
+                            showPDFViewer2 = true
                         } label: {
                             ImageCarouselView(images: images).frame(height: 140)
+                        }
+                        .sheet(isPresented: $showPDFViewer2){
+                            PDFViewer(fileName: "sample2 (1)")
                         }
                     }
                     .offset(y:-100)
                     ZStack {
                         Button {
+                            showPDFViewer3 = true
                         } label: {
                             ImageCarouselView(images: images).frame(height: 140) // seguramente se cambia el height
+                        }
+                        .sheet(isPresented: $showPDFViewer3){
+                            PDFViewer(fileName: "sample3 (1)")
                         }
                     }
                     .offset(y:-50)
