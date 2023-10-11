@@ -11,6 +11,7 @@ struct SearchView: View {
     @State var items: [String] = ["Categoria 1", "Categoria 2", "Categoria 3", "Categoria 4", "Categoria 5", "Categoria 6", "Categoria 7", "Categoria 8"]
     @State var Selections: [String] = []
     @State private var busqueda: String = ""
+    @State var selection: String?
     
     var body: some View {
         NavigationStack{
@@ -31,35 +32,16 @@ struct SearchView: View {
                                 TextField("Buscar", text: $busqueda)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                             }
-                            List{
-                                Section{
-                                    ForEach(items, id: \.self){item in
-                                        Button{
-                                            if Selections.contains(item){
-                                                if let index = Selections.firstIndex(of: item){
-                                                    Selections.remove(at: index)
-                                                }
-                                            }else{
-                                                Selections.append(item)
-                                            }
-                                        } label: {
-                                            HStack{
-                                                Text(item)
-                                                if Selections.contains(item){
-                                                    Spacer()
-                                                    Image(systemName: "checkmark")
-                                                }
-                                                else{
-                                                    
-                                                }
-                                            }
-                                        }
-                                    }
-                                } header: {
-                                    Text("Categorías")
+                            Section{
+                                List(items, id: \.self, selection: $selection){item in
+                                    Text(item)
                                 }
+                                .navigationTitle("Categorias")
+                                .toolbar{
+                                    EditButton()
+                                }
+                                .listStyle(.insetGrouped)
                             }
-                            .listStyle(.insetGrouped)
                             NavigationLink{
                                 resultsView()
                             } label: {
