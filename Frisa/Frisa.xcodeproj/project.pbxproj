@@ -31,6 +31,8 @@
 		FB94B6902AC25D3D00C1ABAF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94B68F2AC25D3D00C1ABAF /* UserView.swift */; };
 		FB9799DD2AD61738004F3943 /* favoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799DC2AD61738004F3943 /* favoriteView.swift */; };
 		FB9799DF2AD61763004F3943 /* resultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799DE2AD61763004F3943 /* resultsView.swift */; };
+		FB9799E12AD61956004F3943 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799E02AD61956004F3943 /* User.swift */; };
+		FB9799E32AD61A84004F3943 /* Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799E22AD61A84004F3943 /* Association.swift */; };
 		FBB1F9702ABA474900CD0858 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */; };
 		FBB1F9722ABA47B900CD0858 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */; };
 		FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FBB310A72AB9040F00980ACE /* FirebaseAuth */; };
@@ -94,6 +96,8 @@
 		FB94B68F2AC25D3D00C1ABAF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		FB9799DC2AD61738004F3943 /* favoriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = favoriteView.swift; path = ../../../../../Downloads/favoriteView.swift; sourceTree = "<group>"; };
 		FB9799DE2AD61763004F3943 /* resultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resultsView.swift; path = ../../../../../Downloads/resultsView.swift; sourceTree = "<group>"; };
+		FB9799E02AD61956004F3943 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FB9799E22AD61A84004F3943 /* Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Association.swift; sourceTree = "<group>"; };
 		FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		FBB565652AC636B6000A3C58 /* OrgRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgRegister.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 				FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */,
 				FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */,
 				FBFB14D02AC2511C0048FAA4 /* Tag.swift */,
+				FB9799E02AD61956004F3943 /* User.swift */,
+				FB9799E22AD61A84004F3943 /* Association.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -413,11 +419,13 @@
 				FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */,
 				FBD1C3302AB91BD500383748 /* config.swift in Sources */,
 				FB9799DD2AD61738004F3943 /* favoriteView.swift in Sources */,
+				FB9799E12AD61956004F3943 /* User.swift in Sources */,
 				FB73F47D2ACF730F00D9D983 /* CommentView.swift in Sources */,
 				FB0ADEBB2ABB8DDA005587F3 /* ManageTokens.swift in Sources */,
 				FB73F47B2ACF72BB00D9D983 /* ratingView.swift in Sources */,
 				7FA9D2032AB7CEBE007EA960 /* LoginView.swift in Sources */,
 				7F6FAE512ABBBB9B009E2F79 /* orgView2.swift in Sources */,
+				FB9799E32AD61A84004F3943 /* Association.swift in Sources */,
 				FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */,
 				7FA9D2052AB80304007EA960 /* RegisterView.swift in Sources */,
 			);

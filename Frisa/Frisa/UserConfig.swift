@@ -29,6 +29,19 @@ struct UserConfig: View {
             Button{
                 name = newName
                 changeName.toggle()
+                let userUpdate = UserUpdate(username: newName)
+                Task {
+                   do {
+                       let success = try await updateUser(user: userUpdate)
+                       if success {
+                           print("User update successful")
+                       } else {
+                           print("User update failed")
+                       }
+                   } catch {
+                       print("Error updating user: \(error)")
+                   }
+               }
             } label: {
                 Text("Actualizar datos")
             }
