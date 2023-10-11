@@ -26,11 +26,12 @@
 		FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */; };
 		FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */; };
 		FB4CC87B2ABA6C300044878B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4CC87A2ABA6C300044878B /* SearchView.swift */; };
+		FB53A4402AD62C5000A5D6E5 /* menuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A43F2AD62C5000A5D6E5 /* menuBarView.swift */; };
+		FB53A4422AD62C8B00A5D6E5 /* resultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A4412AD62C8B00A5D6E5 /* resultsView.swift */; };
+		FB53A4442AD62CAA00A5D6E5 /* favoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A4432AD62CAA00A5D6E5 /* favoriteView.swift */; };
 		FB73F47B2ACF72BB00D9D983 /* ratingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73F47A2ACF72BB00D9D983 /* ratingView.swift */; };
 		FB73F47D2ACF730F00D9D983 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73F47C2ACF730F00D9D983 /* CommentView.swift */; };
 		FB94B6902AC25D3D00C1ABAF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94B68F2AC25D3D00C1ABAF /* UserView.swift */; };
-		FB9799DD2AD61738004F3943 /* favoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799DC2AD61738004F3943 /* favoriteView.swift */; };
-		FB9799DF2AD61763004F3943 /* resultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799DE2AD61763004F3943 /* resultsView.swift */; };
 		FB9799E12AD61956004F3943 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799E02AD61956004F3943 /* User.swift */; };
 		FB9799E32AD61A84004F3943 /* Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799E22AD61A84004F3943 /* Association.swift */; };
 		FBB1F9702ABA474900CD0858 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */; };
@@ -91,11 +92,12 @@
 		FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenAdapter.swift; sourceTree = "<group>"; };
 		FB4CC87A2ABA6C300044878B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		FB53A43F2AD62C5000A5D6E5 /* menuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuBarView.swift; sourceTree = "<group>"; };
+		FB53A4412AD62C8B00A5D6E5 /* resultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = resultsView.swift; path = ../resultsView.swift; sourceTree = "<group>"; };
+		FB53A4432AD62CAA00A5D6E5 /* favoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = favoriteView.swift; path = ../favoriteView.swift; sourceTree = "<group>"; };
 		FB73F47A2ACF72BB00D9D983 /* ratingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ratingView.swift; sourceTree = "<group>"; };
 		FB73F47C2ACF730F00D9D983 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		FB94B68F2AC25D3D00C1ABAF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
-		FB9799DC2AD61738004F3943 /* favoriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = favoriteView.swift; path = ../../../../../Downloads/favoriteView.swift; sourceTree = "<group>"; };
-		FB9799DE2AD61763004F3943 /* resultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resultsView.swift; path = ../../../../../Downloads/resultsView.swift; sourceTree = "<group>"; };
 		FB9799E02AD61956004F3943 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB9799E22AD61A84004F3943 /* Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Association.swift; sourceTree = "<group>"; };
 		FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -173,13 +175,14 @@
 				7FA9D1D52AB7CE57007EA960 /* FrisaApp.swift */,
 				7FA9D2082AB82D8D007EA960 /* MainAppView.swift */,
 				FB4CC87A2ABA6C300044878B /* SearchView.swift */,
-				FB9799DC2AD61738004F3943 /* favoriteView.swift */,
 				7FA9D1D72AB7CE57007EA960 /* ContentView.swift */,
 				7FA9D2022AB7CEBE007EA960 /* LoginView.swift */,
+				FB53A4432AD62CAA00A5D6E5 /* favoriteView.swift */,
+				FB53A4412AD62C8B00A5D6E5 /* resultsView.swift */,
 				7FA9D2042AB80304007EA960 /* RegisterView.swift */,
 				FBB565652AC636B6000A3C58 /* OrgRegister.swift */,
-				FB9799DE2AD61763004F3943 /* resultsView.swift */,
 				FB94B68F2AC25D3D00C1ABAF /* UserView.swift */,
+				FB53A43F2AD62C5000A5D6E5 /* menuBarView.swift */,
 				FBB565672AC6405F000A3C58 /* UserConfig.swift */,
 				FBFB14CE2AC2414B0048FAA4 /* newTag.swift */,
 				7F6FAE502ABBBB9B009E2F79 /* orgView2.swift */,
@@ -400,13 +403,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBB1F9722ABA47B900CD0858 /* ApiResponse.swift in Sources */,
-				FB9799DF2AD61763004F3943 /* resultsView.swift in Sources */,
 				FBFB14CF2AC2414B0048FAA4 /* newTag.swift in Sources */,
 				7FA9D1D82AB7CE57007EA960 /* ContentView.swift in Sources */,
 				7FA9D2092AB82D8D007EA960 /* MainAppView.swift in Sources */,
 				7FA9D1DA2AB7CE57007EA960 /* Item.swift in Sources */,
 				FBB565662AC636B6000A3C58 /* OrgRegister.swift in Sources */,
 				7F91B02D2AC23A4B002713A3 /* PreguntasView.swift in Sources */,
+				FB53A4422AD62C8B00A5D6E5 /* resultsView.swift in Sources */,
 				FB4CC87B2ABA6C300044878B /* SearchView.swift in Sources */,
 				7FA9D1D62AB7CE57007EA960 /* FrisaApp.swift in Sources */,
 				FBB565682AC6405F000A3C58 /* UserConfig.swift in Sources */,
@@ -418,7 +421,7 @@
 				FB94B6902AC25D3D00C1ABAF /* UserView.swift in Sources */,
 				FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */,
 				FBD1C3302AB91BD500383748 /* config.swift in Sources */,
-				FB9799DD2AD61738004F3943 /* favoriteView.swift in Sources */,
+				FB53A4402AD62C5000A5D6E5 /* menuBarView.swift in Sources */,
 				FB9799E12AD61956004F3943 /* User.swift in Sources */,
 				FB73F47D2ACF730F00D9D983 /* CommentView.swift in Sources */,
 				FB0ADEBB2ABB8DDA005587F3 /* ManageTokens.swift in Sources */,
@@ -427,6 +430,7 @@
 				7F6FAE512ABBBB9B009E2F79 /* orgView2.swift in Sources */,
 				FB9799E32AD61A84004F3943 /* Association.swift in Sources */,
 				FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */,
+				FB53A4442AD62CAA00A5D6E5 /* favoriteView.swift in Sources */,
 				7FA9D2052AB80304007EA960 /* RegisterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
