@@ -18,33 +18,6 @@ struct orgView2: View {
                 Text("Arena")
                     .font(.largeTitle)
                     .offset(y: -geo.size.height/2.2)
-                HStack(spacing: geo.size.width/3) {
-                    //mover los icons
-                    Button {
-                    } label: {
-                        Image(systemName: "bell").resizable()
-                            .scaledToFill()
-                            .frame(width: 20, height: 20)
-                            .clipped()
-                        
-                    }
-                    Button {
-                    } label: {
-                        Image(systemName: "bell").resizable()
-                            .scaledToFill()
-                            .frame(width: 20, height: 20)
-                            .clipped()
-                    }
-                    Button {
-                    } label: {
-                        Image(systemName: "bell").resizable()
-                            .scaledToFill()
-                            .frame(width: 20, height: 20)
-                            .clipped()
-                        
-                    }
-                }
-                .offset(y: geo.size.height/1.95)
                 VStack{
                     ImageCarouselView(images: images) //250?
                     ScrollView(.horizontal){
@@ -144,6 +117,9 @@ struct orgView2: View {
                     }
                     .offset(x: -130)
                     Spacer()
+                    
+                    menuBarView()
+                        .offset(y: 50)
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: geo.size.height*3.6/4)
