@@ -21,7 +21,7 @@ struct SearchRes: Decodable {
 }
 
 func search(search: SearchOrg) async throws -> [Association] {
-    let url = apiURL + "/api/v1/createTag"
+    let url = apiURL + "/api/v1/search"
     let session = Session(interceptor:  AccessTokenAdapter());
     
     return try await withCheckedThrowingContinuation { continuation in
@@ -38,6 +38,7 @@ func search(search: SearchOrg) async throws -> [Association] {
                     if let jsonData = try? JSONSerialization.data(withJSONObject: data) {
                         do {
                             let res = try JSONDecoder().decode(SearchRes.self, from: jsonData)
+                            print(res)
                             continuation.resume(returning: res.associations) // Return the array of associations on success.
                         } catch {
                             print("Error decoding JSON: \(error)")

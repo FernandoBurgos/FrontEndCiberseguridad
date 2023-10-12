@@ -12,6 +12,7 @@ struct SearchView: View {
     @State var Selections: [String] = []
     @State private var busqueda: String = ""
     @State var selection: String?
+    @State private var associations: [Association] = []
     
     var body: some View {
         NavigationStack{
@@ -42,8 +43,16 @@ struct SearchView: View {
                                 }
                                 .listStyle(.insetGrouped)
                             }
-                            NavigationLink{
-                                resultsView()
+                            Button{
+                                Task {
+                                    do {
+                                        let searchOrg = SearchOrg(queryText: busqueda, categories: Selections, tags: [])
+                                                           self.associations = try await search(search: searchOrg)
+                                    } catch {
+                                        print("error")
+                                    }
+                                }
+                                //resultsView()
                             } label: {
                                 Text("Buscar")
                             }
