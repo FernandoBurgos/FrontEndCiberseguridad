@@ -13,26 +13,32 @@ struct Tag:Identifiable {
     var id = UUID()
 }
 
-func createTag(tag: Tag) async throws -> Bool {
+func createTag(tag: Tag) async throws -> String? {
     let url = apiURL + "/api/v1/createTag"
     let session = Session(interceptor:  AccessTokenAdapter());
+    
     return try await withCheckedThrowingContinuation { continuation in
         let tagDict: [String: Any] = [
-            "name":tag.name
+            "name": tag.name
         ]
+        
         session.request(url, method: .post, parameters: tagDict, encoding: JSONEncoding.default)
-                .responseJSON { response in
-                    switch response.result {
-                    case .success(let data):
-                        print(data)
-                        // Process the response data here if needed.
-                        continuation.resume(returning: true) // Return true on success.
-                    case .failure(let error):
-                        print(error)
-                        continuation.resume(throwing: error) // Throw an error on failure.
+            .responseJSON { response in
+                switch response.result {
+                case .success(let data):
+                    if let jsonData = try? JSONSerialization.data(withJSONObject: data),
+                       let json = try? JSONDecoder().decode([String: String].self, from: jsonData),
+                       let id = json["tagId"] {
+                        continuation.resume(returning: id) // Return the 'id' on success.
+                    } else {
+                        continuation.resume(returning: nil) // Return nil if 'id' couldn't be extracted.
                     }
+                case .failure(let error):
+                    print(error)
+                    continuation.resume(throwing: error) // Throw an error on failure.
                 }
-        }
+            }
+    }
 }
 
 func getTag(id: String) async throws -> Bool {

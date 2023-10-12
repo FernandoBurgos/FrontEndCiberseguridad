@@ -8,18 +8,18 @@
 import Foundation
 import Alamofire
 
-struct Colaborator {
+struct Colaborator: Decodable {
     let userId: String
     let perms: Int
 }
 
-struct Contact {
+struct Contact: Decodable {
     let email: String
     let phone: String
     let whatsapp: String?
 }
 
-struct Association {
+struct Association: Decodable {
     let name: String
     let description: String?
     let ownerId: String
