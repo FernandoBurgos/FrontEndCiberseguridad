@@ -33,6 +33,9 @@
 		FB53A4402AD62C5000A5D6E5 /* menuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A43F2AD62C5000A5D6E5 /* menuBarView.swift */; };
 		FB53A4422AD62C8B00A5D6E5 /* resultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A4412AD62C8B00A5D6E5 /* resultsView.swift */; };
 		FB53A4442AD62CAA00A5D6E5 /* favoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A4432AD62CAA00A5D6E5 /* favoriteView.swift */; };
+		FB5CE38F2AD89EE400F0FC0C /* review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5CE38E2AD89EE400F0FC0C /* review.swift */; };
+		FB5CE3912AD8A50500F0FC0C /* reviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5CE3902AD8A50500F0FC0C /* reviewModel.swift */; };
+		FB5CE3942AD8A58E00F0FC0C /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = FB5CE3932AD8A58E00F0FC0C /* SwiftyJSON */; };
 		FB73F47B2ACF72BB00D9D983 /* ratingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73F47A2ACF72BB00D9D983 /* ratingView.swift */; };
 		FB73F47D2ACF730F00D9D983 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73F47C2ACF730F00D9D983 /* CommentView.swift */; };
 		FB94B6902AC25D3D00C1ABAF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94B68F2AC25D3D00C1ABAF /* UserView.swift */; };
@@ -103,6 +106,8 @@
 		FB53A43F2AD62C5000A5D6E5 /* menuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuBarView.swift; sourceTree = "<group>"; };
 		FB53A4412AD62C8B00A5D6E5 /* resultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = resultsView.swift; path = ../resultsView.swift; sourceTree = "<group>"; };
 		FB53A4432AD62CAA00A5D6E5 /* favoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = favoriteView.swift; path = ../favoriteView.swift; sourceTree = "<group>"; };
+		FB5CE38E2AD89EE400F0FC0C /* review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = review.swift; sourceTree = "<group>"; };
+		FB5CE3902AD8A50500F0FC0C /* reviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewModel.swift; sourceTree = "<group>"; };
 		FB73F47A2ACF72BB00D9D983 /* ratingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ratingView.swift; sourceTree = "<group>"; };
 		FB73F47C2ACF730F00D9D983 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		FB94B68F2AC25D3D00C1ABAF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 			files = (
 				FBB310B12AB9053500980ACE /* GoogleSignIn in Frameworks */,
 				FB2CB6642ABCF6F30045B3C0 /* Alamofire in Frameworks */,
+				FB5CE3942AD8A58E00F0FC0C /* SwiftyJSON in Frameworks */,
 				FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */,
 				FBB310AE2AB9040F00980ACE /* FirebaseStorage in Frameworks */,
 				FBB310B32AB9053500980ACE /* GoogleSignInSwift in Frameworks */,
@@ -254,6 +260,8 @@
 				FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */,
 				FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */,
 				FBFB14D02AC2511C0048FAA4 /* Tag.swift */,
+				FB5CE38E2AD89EE400F0FC0C /* review.swift */,
+				FB5CE3902AD8A50500F0FC0C /* reviewModel.swift */,
 				FB9799E02AD61956004F3943 /* User.swift */,
 				FB9799E22AD61A84004F3943 /* Association.swift */,
 			);
@@ -292,6 +300,7 @@
 				FBB310B02AB9053500980ACE /* GoogleSignIn */,
 				FBB310B22AB9053500980ACE /* GoogleSignInSwift */,
 				FB2CB6632ABCF6F30045B3C0 /* Alamofire */,
+				FB5CE3932AD8A58E00F0FC0C /* SwiftyJSON */,
 			);
 			productName = Frisa;
 			productReference = 7FA9D1D22AB7CE57007EA960 /* Frisa.app */;
@@ -370,6 +379,7 @@
 				FBB310A62AB9040F00980ACE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FBB310AF2AB9053500980ACE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FB5CE3922AD8A58E00F0FC0C /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 7FA9D1D32AB7CE57007EA960 /* Products */;
 			projectDirPath = "";
@@ -435,6 +445,7 @@
 				FBFB14D12AC2511C0048FAA4 /* Tag.swift in Sources */,
 				FB94B6902AC25D3D00C1ABAF /* UserView.swift in Sources */,
 				FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */,
+				FB5CE3912AD8A50500F0FC0C /* reviewModel.swift in Sources */,
 				FBD1C3302AB91BD500383748 /* config.swift in Sources */,
 				FB53A4402AD62C5000A5D6E5 /* menuBarView.swift in Sources */,
 				FB9799E12AD61956004F3943 /* User.swift in Sources */,
@@ -448,6 +459,7 @@
 				FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */,
 				FB53A4442AD62CAA00A5D6E5 /* favoriteView.swift in Sources */,
 				7FA9D2052AB80304007EA960 /* RegisterView.swift in Sources */,
+				FB5CE38F2AD89EE400F0FC0C /* review.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,6 +828,14 @@
 				minimumVersion = 5.8.0;
 			};
 		};
+		FB5CE3922AD8A58E00F0FC0C /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		FBB310A22AB9018600980ACE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -847,6 +867,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FB5CE3932AD8A58E00F0FC0C /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB5CE3922AD8A58E00F0FC0C /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 		FBB310A72AB9040F00980ACE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

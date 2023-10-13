@@ -9,10 +9,31 @@ import SwiftUI
 
 struct CommentView: View {
     let starRating: Int
-    @State private var liked: Bool? = nil
+    let comment: String
+    let upVotes: Int
+    let downVotes: Int
+    let username: String
+    let vote: Int
+    let revID: String
+    @State var localUpVotes: Int = 0
+    @State var localDownVotes: Int = 0
+    @State private var liked: Bool = false
+    @State private var disliked: Bool = false
+    @State var voted: Bool = false
+    let reviewModel: ReviewModel = ReviewModel()
+    
+    
     
     var body: some View {
         VStack(alignment: .leading) {
+            Text("")
+                .task {
+                    liked = (vote == 1 ? true : false)
+                    disliked = (vote == 0 ? true : false)
+                    localUpVotes = upVotes
+                    localDownVotes = downVotes
+                }
+            Text("\(username)")
             HStack {
                 Image(systemName: "person.circle.fill")
                     .resizable()
@@ -21,7 +42,7 @@ struct CommentView: View {
                     .clipped()
                     .padding(.trailing, 10)
                 
-                Text("ARENA es la mejor ONG de la historia, e YCO también es increíble!!")
+                Text(comment)
                     .padding(8)
                     .background(RoundedRectangle(cornerRadius: 15).fill(Color.gray.opacity(0.1)))
             }
@@ -36,24 +57,48 @@ struct CommentView: View {
                 }
                 //like
                 Button(action: {
-                    liked = true
+                    liked.toggle()
+                    disliked = (liked == true && disliked == true ? false : disliked)
+                    localDownVotes = (disliked == true ? downVotes + 1 : downVotes)
+                    localUpVotes = (liked == true ? upVotes + 1 : upVotes)
+                    Task{
+                        do {
+                            voted = try await reviewModel.voteReview(reviewID: revID, vote: 1)
+                            print(voted)
+                        } catch {
+                            print(error)
+                        }
+                    }
                 }) {
-                    Image(systemName: liked == true ? "hand.thumbsup.fill" : "hand.thumbsup") //para arriba
+                    Text("\(localUpVotes)")
+                    Image(systemName: liked ? "hand.thumbsup.fill" : "hand.thumbsup") //para arriba
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
                 }
-                .foregroundColor(liked == true ? .blue : .gray)
+                .foregroundColor(liked ? .blue : .gray)
                 //dislike
                 Button(action: {
-                    liked = false
+                    disliked.toggle()
+                    liked = (liked == true && disliked == true ? false : liked)
+                    localDownVotes = (disliked == true ? downVotes + 1 : downVotes)
+                    localUpVotes = (liked == true ? upVotes + 1 : upVotes)
+                    Task{
+                        do {
+                            voted = try await reviewModel.voteReview(reviewID: revID, vote: 0)
+                            print(voted)
+                        } catch {
+                            print(error)
+                        }
+                    }
                 }) {
-                    Image(systemName: liked == false ? "hand.thumbsdown.fill" : "hand.thumbsdown") // hacia abajo
+                    Text("\(localDownVotes)")
+                    Image(systemName: disliked ? "hand.thumbsdown.fill" : "hand.thumbsdown") // hacia abajo
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
                 }
-                .foregroundColor(liked == false ? .red : .gray)
+                .foregroundColor(disliked ? .red : .gray)
             }
             .padding(.top, 5)
         }
@@ -62,5 +107,5 @@ struct CommentView: View {
 
 
 #Preview {
-    CommentView(starRating: 4) // default
+    CommentView(starRating: 4, comment: "ARENA es la mejor ONG de la historia, e YCO también es increíble!!", upVotes: 1, downVotes: 1, username: "Fernando", vote: -1, revID: "") // default
 }

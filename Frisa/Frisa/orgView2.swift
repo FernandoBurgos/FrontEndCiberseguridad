@@ -11,6 +11,8 @@ struct orgView2: View {
     let images = ["Arena", "icon"] // imagenes del carrusel
     @State private var ratingOrg: Int = 0 // default
     @State private var busqueda: String = ""
+    let reviewModel: ReviewModel = ReviewModel()
+    @State var fetchedReviews: [review] = []
     var body: some View {
         GeometryReader{geo in
             ZStack{
@@ -18,6 +20,15 @@ struct orgView2: View {
                 Text("Arena")
                     .font(.largeTitle)
                     .offset(y: -geo.size.height/2.2)
+                Text("")
+                    .task {
+                    do {
+                        fetchedReviews = try await reviewModel.fetchReviews(assocID: "650a8883cd6657bdcafe02c5")
+                        print(fetchedReviews)
+                    } catch {
+                        print(error)
+                    }
+                }
                 VStack{
                     ImageCarouselView(images: images)
                         .frame(height: 150)//250?
@@ -83,9 +94,10 @@ struct orgView2: View {
                             .background(RoundedRectangle(cornerRadius: 25).stroke(Color.black, lineWidth: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 25))
                             //SECCION COMMENTS
-                            CommentView(starRating:4)
-                            CommentView(starRating:4)
-                            CommentView(starRating:4)
+                            ForEach(fetchedReviews){rev in
+                                CommentView(starRating: rev.rating, comment: rev.content, upVotes: rev.upVotes, downVotes: rev.downVotes, username: rev.username, vote: rev.vote, revID: rev.id)
+                            }
+                            /*entView(starRating: 2, comment: "hola", upVotes: 2, downVotes: 4, username: "hola", vote: -1)*/
                         }
                     }
                     .frame(height:200)
