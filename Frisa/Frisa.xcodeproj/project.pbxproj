@@ -41,6 +41,7 @@
 		FB94B6902AC25D3D00C1ABAF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94B68F2AC25D3D00C1ABAF /* UserView.swift */; };
 		FB9799E12AD61956004F3943 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799E02AD61956004F3943 /* User.swift */; };
 		FB9799E32AD61A84004F3943 /* Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799E22AD61A84004F3943 /* Association.swift */; };
+		FB9799E52AD8AB26004F3943 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9799E42AD8AB26004F3943 /* Search.swift */; };
 		FBB1F9702ABA474900CD0858 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */; };
 		FBB1F9722ABA47B900CD0858 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */; };
 		FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FBB310A72AB9040F00980ACE /* FirebaseAuth */; };
@@ -113,6 +114,7 @@
 		FB94B68F2AC25D3D00C1ABAF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		FB9799E02AD61956004F3943 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB9799E22AD61A84004F3943 /* Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Association.swift; sourceTree = "<group>"; };
+		FB9799E42AD8AB26004F3943 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		FBB1F96F2ABA474900CD0858 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		FBB1F9712ABA47B900CD0858 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		FBB565652AC636B6000A3C58 /* OrgRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgRegister.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				FB5CE3902AD8A50500F0FC0C /* reviewModel.swift */,
 				FB9799E02AD61956004F3943 /* User.swift */,
 				FB9799E22AD61A84004F3943 /* Association.swift */,
+				FB9799E42AD8AB26004F3943 /* Search.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				7F6FAE512ABBBB9B009E2F79 /* orgView2.swift in Sources */,
 				FB9799E32AD61A84004F3943 /* Association.swift in Sources */,
 				FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */,
+				FB9799E52AD8AB26004F3943 /* Search.swift in Sources */,
 				FB53A4442AD62CAA00A5D6E5 /* favoriteView.swift in Sources */,
 				7FA9D2052AB80304007EA960 /* RegisterView.swift in Sources */,
 				FB5CE38F2AD89EE400F0FC0C /* review.swift in Sources */,

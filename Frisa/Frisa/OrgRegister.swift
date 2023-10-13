@@ -121,17 +121,42 @@ struct OrgRegister: View {
             
             Button {
                 if orga.count < 2 {
-                    showUsernameError = true
-                    return
-                }
-                Task {
-                    do {
-                        print("Funcion para registrar organizacion")
-                        clicked.toggle()
-                    } catch {
-                        print(error)
+                        showUsernameError = true
+                        return
                     }
-                }
+                    
+                    Task {
+                        do {
+                            var createdTags = [String]()
+                            for tag in tagsarr {
+                                if let id = try await createTag(tag: Tag(name: tag.name)) {
+                                                createdTags.append(id)
+                                }
+                            }
+                            
+                            let association = Association(
+                                name: orga,
+                                description: desc,
+                                ownerId: "notneeded",
+                                colaborators: [],
+                                logoURL: "",
+                                images: [],
+                                websiteURL: "",
+                                facebookURL: "",
+                                instagramURL: "",
+                                categoryId: categorySelected,
+                                tags: createdTags,
+                                contact: Contact(email: email, phone: "", whatsapp: ""),
+                                address: "",
+                                verified: false
+                            )
+                            
+                            try await createAssoc(assoc: association)
+                            clicked.toggle()
+                        } catch {
+                            print(error)
+                        }
+                    }
                 
             } label: {
                 Text("Registrarse").padding().font(.system(size:20, weight: .bold))
