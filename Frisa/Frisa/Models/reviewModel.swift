@@ -85,4 +85,36 @@ class ReviewModel {
                 }
         }
     }
+    
+    func postReview(assocId: String, content: String, rating: Int, isPrivate: Bool) async throws -> Bool {
+        
+        let url: String = apiURL + "/api/v1/review/post"
+        
+        let session = Session(interceptor: AccessTokenAdapter());
+        
+        return try await withCheckedThrowingContinuation{continuation in
+            let reviewDict: [String: Any] = [
+                "assocId": assocId,
+                "content": content,
+                "rating": rating,
+                "isPrivate": isPrivate
+            ]
+            
+            session.request(url, method: .post, parameters: reviewDict, encoding: JSONEncoding.default)
+                .responseJSON {response in
+                
+                    switch response.result{
+                    case .success(let data):
+                        print(data)
+                        
+                        continuation.resume(returning: true)
+                        
+                    case .failure(let error):
+                        print(error)
+                        
+                        continuation.resume(throwing: error)
+                    }
+                }
+        }
+    }
 }

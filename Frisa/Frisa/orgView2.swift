@@ -11,6 +11,7 @@ struct orgView2: View {
     let images = ["Arena", "icon"] // imagenes del carrusel
     @State private var ratingOrg: Int = 0 // default
     @State private var busqueda: String = ""
+    @State var posted: Bool = false
     let reviewModel: ReviewModel = ReviewModel()
     @State var fetchedReviews: [review] = []
     var body: some View {
@@ -81,7 +82,15 @@ struct orgView2: View {
                                     .frame(height: 25)
                                 
                                 Button(action: {
-                                    print("Se tocó el post")
+//                                    print(ratingOrg)
+                                    Task{
+                                        do {
+                                            posted = try await reviewModel.postReview(assocId: "650a8883cd6657bdcafe02c5", content: busqueda, rating: ratingOrg, isPrivate: false)
+                                            print(posted)
+                                        } catch {
+                                            print(error)
+                                        }
+                                    }
                                 }) {
                                     Text("Post")
                                         .padding(.horizontal)
@@ -94,11 +103,12 @@ struct orgView2: View {
                             .background(RoundedRectangle(cornerRadius: 25).stroke(Color.black, lineWidth: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 25))
                             //SECCION COMMENTS
-                            ForEach(fetchedReviews){rev in
-                                CommentView(starRating: rev.rating, comment: rev.content, upVotes: rev.upVotes, downVotes: rev.downVotes, username: rev.username, vote: rev.vote, revID: rev.id)
-                            }
-                            /*entView(starRating: 2, comment: "hola", upVotes: 2, downVotes: 4, username: "hola", vote: -1)*/
+//                            ForEach(fetchedReviews){rev in
+//                                CommentView(starRating: rev.rating, comment: rev.content, upVotes: rev.upVotes, downVotes: rev.downVotes, username: rev.username, vote: rev.vote, revID: rev.id)
+//                            }
+                            CommentView(starRating: 2, comment: "hola", upVotes: 2, downVotes: 4, username: "hola", vote: 1, revID: "")
                         }
+//                        .padding(.trailing, 30)
                     }
                     .frame(height:200)
                     //Spacer()

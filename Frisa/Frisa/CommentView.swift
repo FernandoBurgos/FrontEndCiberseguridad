@@ -60,7 +60,15 @@ struct CommentView: View {
                     liked.toggle()
                     disliked = (liked == true && disliked == true ? false : disliked)
                     localDownVotes = (disliked == true ? downVotes + 1 : downVotes)
-                    localUpVotes = (liked == true ? upVotes + 1 : upVotes)
+                    if (vote == 1){
+                        localUpVotes = (liked == false ? localUpVotes - 1 : localUpVotes)
+                        localUpVotes = (liked == true ? localUpVotes + 1 : localUpVotes)
+                    } else {
+                        localUpVotes = (liked == true ? upVotes + 1 : upVotes)
+                        localDownVotes = (disliked == false ? localDownVotes - 1 : localDownVotes)
+                    }
+                    
+                    
                     Task{
                         do {
                             voted = try await reviewModel.voteReview(reviewID: revID, vote: 1)
@@ -81,8 +89,15 @@ struct CommentView: View {
                 Button(action: {
                     disliked.toggle()
                     liked = (liked == true && disliked == true ? false : liked)
-                    localDownVotes = (disliked == true ? downVotes + 1 : downVotes)
+                    
                     localUpVotes = (liked == true ? upVotes + 1 : upVotes)
+                    if (vote == 0){
+                        localDownVotes = (disliked == false ? localDownVotes - 1 : localDownVotes)
+                        localDownVotes = (disliked == true ? localDownVotes + 1 : localDownVotes)
+                    }else {
+                        localDownVotes = (disliked == true ? downVotes + 1 : downVotes)
+                        localUpVotes = (liked == false ? localUpVotes - 1 : localUpVotes)
+                    }
                     Task{
                         do {
                             voted = try await reviewModel.voteReview(reviewID: revID, vote: 0)
