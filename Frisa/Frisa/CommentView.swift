@@ -63,6 +63,8 @@ struct CommentView: View {
                     if (vote == 1){
                         localUpVotes = (liked == false ? localUpVotes - 1 : localUpVotes)
                         localUpVotes = (liked == true ? localUpVotes + 1 : localUpVotes)
+                    } else if (vote == -1){
+                        localUpVotes = (liked == true ? upVotes + 1 : upVotes)
                     } else {
                         localUpVotes = (liked == true ? upVotes + 1 : upVotes)
                         localDownVotes = (disliked == false ? localDownVotes - 1 : localDownVotes)
@@ -94,7 +96,9 @@ struct CommentView: View {
                     if (vote == 0){
                         localDownVotes = (disliked == false ? localDownVotes - 1 : localDownVotes)
                         localDownVotes = (disliked == true ? localDownVotes + 1 : localDownVotes)
-                    }else {
+                    } else if (vote == -1){
+                        localDownVotes = (disliked == true ? downVotes + 1 : downVotes)
+                    } else {
                         localDownVotes = (disliked == true ? downVotes + 1 : downVotes)
                         localUpVotes = (liked == false ? localUpVotes - 1 : localUpVotes)
                     }

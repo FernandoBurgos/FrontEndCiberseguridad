@@ -103,10 +103,10 @@ struct orgView2: View {
                             .background(RoundedRectangle(cornerRadius: 25).stroke(Color.black, lineWidth: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 25))
                             //SECCION COMMENTS
-//                            ForEach(fetchedReviews){rev in
-//                                CommentView(starRating: rev.rating, comment: rev.content, upVotes: rev.upVotes, downVotes: rev.downVotes, username: rev.username, vote: rev.vote, revID: rev.id)
-//                            }
-                            CommentView(starRating: 2, comment: "hola", upVotes: 2, downVotes: 4, username: "hola", vote: 1, revID: "")
+                            ForEach(fetchedReviews){rev in
+                                CommentView(starRating: rev.rating, comment: rev.content, upVotes: rev.upVotes, downVotes: rev.downVotes, username: rev.username, vote: rev.vote, revID: rev.id)
+                            }
+//                            CommentView(starRating: 2, comment: "hola", upVotes: 2, downVotes: 4, username: "hola", vote: 1, revID: "")
                         }
 //                        .padding(.trailing, 30)
                     }

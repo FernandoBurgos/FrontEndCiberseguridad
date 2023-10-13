@@ -14,6 +14,7 @@ struct ContentView: View {
         Group {
             if isLoggedIn {
                 MainAppView()
+//              resultsView()
             } else {
                 LoginView()
             }
