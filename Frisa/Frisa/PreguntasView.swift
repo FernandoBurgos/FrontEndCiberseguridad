@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct PreguntasView: View {
-    let images = ["Arena"]
+    let images = ["ELEMENTOS"]
+    let images2 = ["AYUDA"]
+    let images3 = ["ENCONTRAR"]
     @State private var showPDFViewer = false
     @State private var showPDFViewer2 = false
     @State private var showPDFViewer3 = false
+    @State private var refreshView = false
+
     var body: some View {
         GeometryReader{geo in
             VStack{
@@ -23,6 +27,7 @@ struct PreguntasView: View {
                     ZStack {
                         Button{
                             showPDFViewer = true
+                            refreshView.toggle()
                         } label: {
                             ImageCarouselView(images: images).frame(height: 140)
                         }
@@ -34,8 +39,9 @@ struct PreguntasView: View {
                     ZStack {
                         Button {
                             showPDFViewer2 = true
+                            refreshView.toggle()
                         } label: {
-                            ImageCarouselView(images: images).frame(height: 140)
+                            ImageCarouselView(images: images2).frame(height: 140)
                         }
                         .sheet(isPresented: $showPDFViewer2){
                             PDFViewer(fileName: "sample2 (1)")
@@ -45,8 +51,9 @@ struct PreguntasView: View {
                     ZStack {
                         Button {
                             showPDFViewer3 = true
+                            refreshView.toggle()
                         } label: {
-                            ImageCarouselView(images: images).frame(height: 140) // seguramente se cambia el height
+                            ImageCarouselView(images: images3).frame(height: 140) // seguramente se cambia el height
                         }
                         .sheet(isPresented: $showPDFViewer3){
                             PDFViewer(fileName: "sample3 (1)")
