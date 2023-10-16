@@ -90,12 +90,6 @@ struct orgView2: View {
                                         } catch {
                                             print(error)
                                         }
-                                        do {
-                                            fetchedReviews = try await reviewModel.fetchReviews(assocID: "650a8883cd6657bdcafe02c5")
-                                            print(fetchedReviews)
-                                        } catch {
-                                            print(error)
-                                        }
                                     }
                                 }) {
                                     Text("Post")
