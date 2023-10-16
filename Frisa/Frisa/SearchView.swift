@@ -48,6 +48,7 @@ struct SearchView: View {
                                     do {
                                         let searchOrg = SearchOrg(queryText: busqueda, categories: Selections, tags: [])
                                                            self.associations = try await search(search: searchOrg)
+                                        print(associations)
                                     } catch {
                                         print("error")
                                     }

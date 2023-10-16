@@ -72,7 +72,10 @@ struct UserView: View {
                     }
                     .listStyle(.insetGrouped)
                     Button{}label: {
-                        Text("Cerrar Sesión")
+                        Text("")
+                            .task {
+                                logout()
+                            }
                     }
                     .tint(.red)
                     menuBarView()
