@@ -26,7 +26,8 @@ struct SearchView: View {
                                 Text("Escoge según tus necesidades")
                                     .font(.caption)
                             }
-                            .padding(.bottom, 50)
+                            .padding(.top, 20)
+                            .padding(.bottom, 30)
                             Text("Buscar por nombre")
                             HStack{
                                 Image(systemName: "magnifyingglass")
@@ -37,14 +38,13 @@ struct SearchView: View {
                                 List(items, id: \.self, selection: $selection){item in
                                     Text(item)
                                 }
-                                .navigationTitle("Categorias")
-                                .toolbar{
-                                    EditButton()
-                                }
                                 .listStyle(.insetGrouped)
+                            } header: {
+                                Text("Buscar por categorías")
                             }
-                            Button{
-                                Task {
+                            NavigationLink{
+                                Text("")
+                                    .task {
                                     do {
                                         let searchOrg = SearchOrg(queryText: busqueda, categories: Selections, tags: [])
                                                            self.associations = try await search(search: searchOrg)
@@ -53,7 +53,7 @@ struct SearchView: View {
                                         print("error")
                                     }
                                 }
-                                //resultsView()
+                                resultsView(associations: associations)
                             } label: {
                                 Text("Buscar")
                             }
