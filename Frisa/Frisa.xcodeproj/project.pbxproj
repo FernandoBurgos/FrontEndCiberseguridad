@@ -30,6 +30,7 @@
 		FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */; };
 		FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */; };
 		FB4CC87B2ABA6C300044878B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4CC87A2ABA6C300044878B /* SearchView.swift */; };
+		FB5133DF2ADE10D400B9C7B9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FB5133DE2ADE10D400B9C7B9 /* Kingfisher */; };
 		FB53A4402AD62C5000A5D6E5 /* menuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A43F2AD62C5000A5D6E5 /* menuBarView.swift */; };
 		FB53A4422AD62C8B00A5D6E5 /* resultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A4412AD62C8B00A5D6E5 /* resultsView.swift */; };
 		FB53A4442AD62CAA00A5D6E5 /* favoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53A4432AD62CAA00A5D6E5 /* favoriteView.swift */; };
@@ -136,6 +137,7 @@
 				FBB310B12AB9053500980ACE /* GoogleSignIn in Frameworks */,
 				FB2CB6642ABCF6F30045B3C0 /* Alamofire in Frameworks */,
 				FB5CE3942AD8A58E00F0FC0C /* SwiftyJSON in Frameworks */,
+				FB5133DF2ADE10D400B9C7B9 /* Kingfisher in Frameworks */,
 				FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */,
 				FBB310AE2AB9040F00980ACE /* FirebaseStorage in Frameworks */,
 				FBB310B32AB9053500980ACE /* GoogleSignInSwift in Frameworks */,
@@ -304,6 +306,7 @@
 				FBB310B22AB9053500980ACE /* GoogleSignInSwift */,
 				FB2CB6632ABCF6F30045B3C0 /* Alamofire */,
 				FB5CE3932AD8A58E00F0FC0C /* SwiftyJSON */,
+				FB5133DE2ADE10D400B9C7B9 /* Kingfisher */,
 			);
 			productName = Frisa;
 			productReference = 7FA9D1D22AB7CE57007EA960 /* Frisa.app */;
@@ -383,6 +386,7 @@
 				FBB310AF2AB9053500980ACE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FB5CE3922AD8A58E00F0FC0C /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				FB5133DD2ADE10D400B9C7B9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7FA9D1D32AB7CE57007EA960 /* Products */;
 			projectDirPath = "";
@@ -832,6 +836,14 @@
 				minimumVersion = 5.8.0;
 			};
 		};
+		FB5133DD2ADE10D400B9C7B9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.9.1;
+			};
+		};
 		FB5CE3922AD8A58E00F0FC0C /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -871,6 +883,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FB5133DE2ADE10D400B9C7B9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB5133DD2ADE10D400B9C7B9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		FB5CE3932AD8A58E00F0FC0C /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

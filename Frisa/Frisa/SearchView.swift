@@ -11,7 +11,7 @@ struct SearchView: View {
     @State var items: [String] = ["Derechos Humanos", "Medio Ambiente", "Cultura y Arte", "Investigación Científica", "Bienestar Animal", "Asistencia Social", "Política y Activismo", "Desarrollo Comunitario", "Salud", "Educación", "Desarrollo Económico", "Desastres y Ayuda Humanitaria"]
     @State var Selections: [String] = []
     @State private var busqueda: String = ""
-    @State var selection: String?
+    @State var selection: String? = ""
     @State private var associations: [Association] = []
     
     var body: some View {
@@ -46,14 +46,18 @@ struct SearchView: View {
                                 Text("")
                                     .task {
                                     do {
-                                        let searchOrg = SearchOrg(queryText: busqueda, categories: Selections, tags: [])
+                                        let category: String = selection ?? ""
+                                        let category1 = (category == "" ? [] : [category])
+//                                        print(category)
+//                                        print(category1)
+                                        let searchOrg = SearchOrg(queryText: busqueda, categories: category1, tags: [])
                                                            self.associations = try await search(search: searchOrg)
-                                        print(associations)
+//                                        print(associations)
                                     } catch {
                                         print("error")
                                     }
                                 }
-                                resultsView(associations: associations)
+                                resultsView(AssociationsArr: associations)
                             } label: {
                                 Text("Buscar")
                             }
