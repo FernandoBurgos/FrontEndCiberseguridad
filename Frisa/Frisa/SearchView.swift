@@ -57,7 +57,7 @@ struct SearchView: View {
                                         print("error")
                                     }
                                 }
-                                resultsView(AssociationsArr: associations)
+                                resultsView(associations: $associations)
                             } label: {
                                 Text("Buscar")
                             }

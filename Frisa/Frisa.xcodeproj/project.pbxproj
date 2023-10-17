@@ -28,6 +28,7 @@
 		FB0ADEBD2ABB91F5005587F3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0ADEBC2ABB91F5005587F3 /* AuthenticationManager.swift */; };
 		FB1721052ADF24E9006EF237 /* extraInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1721042ADF24E9006EF237 /* extraInfoView.swift */; };
 		FB1721082ADF293F006EF237 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = FB1721072ADF293F006EF237 /* iPhoneNumberField */; };
+		FB17210B2ADF30F4006EF237 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FB17210A2ADF30F4006EF237 /* Kingfisher */; };
 		FB2CB6642ABCF6F30045B3C0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FB2CB6632ABCF6F30045B3C0 /* Alamofire */; };
 		FB2CB6662ABCF9080045B3C0 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CB6652ABCF9080045B3C0 /* TokenResponse.swift */; };
 		FB2CB6682ABCFD150045B3C0 /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CB6672ABCFD150045B3C0 /* AccessTokenAdapter.swift */; };
@@ -140,6 +141,7 @@
 				FB2CB6642ABCF6F30045B3C0 /* Alamofire in Frameworks */,
 				FB1721082ADF293F006EF237 /* iPhoneNumberField in Frameworks */,
 				FB5CE3942AD8A58E00F0FC0C /* SwiftyJSON in Frameworks */,
+				FB17210B2ADF30F4006EF237 /* Kingfisher in Frameworks */,
 				FBB310A82AB9040F00980ACE /* FirebaseAuth in Frameworks */,
 				FBB310AE2AB9040F00980ACE /* FirebaseStorage in Frameworks */,
 				FBB310B32AB9053500980ACE /* GoogleSignInSwift in Frameworks */,
@@ -310,6 +312,7 @@
 				FB2CB6632ABCF6F30045B3C0 /* Alamofire */,
 				FB5CE3932AD8A58E00F0FC0C /* SwiftyJSON */,
 				FB1721072ADF293F006EF237 /* iPhoneNumberField */,
+				FB17210A2ADF30F4006EF237 /* Kingfisher */,
 			);
 			productName = Frisa;
 			productReference = 7FA9D1D22AB7CE57007EA960 /* Frisa.app */;
@@ -390,6 +393,7 @@
 				FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FB5CE3922AD8A58E00F0FC0C /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				FB1721062ADF293F006EF237 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
+				FB1721092ADF30F4006EF237 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7FA9D1D32AB7CE57007EA960 /* Products */;
 			projectDirPath = "";
@@ -840,6 +844,14 @@
 				minimumVersion = 0.10.1;
 			};
 		};
+		FB1721092ADF30F4006EF237 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.9.1;
+			};
+		};
 		FB2CB6622ABCF6F30045B3C0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -887,6 +899,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB1721062ADF293F006EF237 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */;
 			productName = iPhoneNumberField;
+		};
+		FB17210A2ADF30F4006EF237 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB1721092ADF30F4006EF237 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		FB2CB6632ABCF6F30045B3C0 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

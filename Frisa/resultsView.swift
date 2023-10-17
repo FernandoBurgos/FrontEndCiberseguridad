@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct resultsView: View {
     var symbols = ["keyboard", "hifispeaker.fill", "printer.fill", "tv.fill", "desktopcomputer", "headphones", "tv.music.note", "mic", "plus.bubble"]
@@ -13,7 +14,7 @@ struct resultsView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    @State var associations: [Association]
+    @Binding var associations: [Association]
 //    @State var presentOrg: Bool = false
     var body: some View {
         NavigationStack{
@@ -23,16 +24,18 @@ struct resultsView: View {
                     ScrollView(.vertical){
                             LazyVGrid(columns: layout, spacing: 20) {
                                 ForEach(0..<associations.count) { index in
+                                    
+                                    let logoUrl = associations[index].logoURL ?? ""
+                                    let completeUrl = apiURL + logoUrl
+                                    
                                     NavigationLink{
                                         orgView2()
                                     } label: {
-                                        Image(associations[index].logoURL!)
-                                            .resizable()
-                                            .padding()
-                                            .frame(width: 150, height: 100)
-                                            .background(Color(red: 253/255, green: 247/255, blue: 173/255))
-                                            .cornerRadius(15)
-                                            .tint(Color.black)
+                                        KFImage(URL(string: completeUrl)!)
+//                                            .resizable()
+//                                            .padding()
+//                                            .frame(width: 150, height: 100)
+//                                            .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                                     }
                                 }
                             }
@@ -52,5 +55,5 @@ struct resultsView: View {
 }
 
 #Preview {
-    resultsView(associations: [])
+    resultsView(associations: .constant([]))
 }
