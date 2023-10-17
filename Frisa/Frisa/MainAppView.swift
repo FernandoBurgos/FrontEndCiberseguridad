@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainAppView: View {
-    let images = ["icon", "icon"] // agregar numero que sean de fundaciones
+    let images = ["DHH2", "medio2", "arte (1)", "invC", "animal", "asocial", "pol", "comu", "des", "salud", "ed", "dec" ] // agregar numero que sean de fundaciones
     var body: some View {
         NavigationStack{
             VStack {
@@ -68,17 +68,15 @@ struct MainAppView: View {
                 Text("Preguntas Frecuentes:").font(.system(size: 30, weight: .bold)).offset(x:-25, y: -35)
                 VStack {
                     ZStack {
-                        Button(action: {
-                            // lo q sea
-                        }) {
-                            Image("icon")
+                        NavigationLink(destination: PreguntasView()) {
+                            Image("FAQ")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 390, height: 200)
                                 .clipped()
                         }
                     }
-                    .offset(y: -35) //para q se mueva el boton preguntas
+                    .offset(y: -35)
                     
                     ZStack {
                         NavigationLink{
