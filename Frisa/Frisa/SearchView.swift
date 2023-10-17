@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State var items: [String] = ["Categoria 1", "Categoria 2", "Categoria 3", "Categoria 4", "Categoria 5", "Categoria 6", "Categoria 7", "Categoria 8"]
+    @State var items: [String] = ["Derechos Humanos", "Medio Ambiente", "Cultura y Arte", "Investigación Científica", "Bienestar Animal", "Asistencia Social", "Política y Activismo", "Desarrollo Comunitario", "Salud", "Educación", "Desarrollo Económico", "Desastres y Ayuda Humanitaria"]
     @State var Selections: [String] = []
     @State private var busqueda: String = ""
-    @State var selection: String?
+    @State var selection: String? = ""
     @State private var associations: [Association] = []
     
     var body: some View {
@@ -26,7 +26,8 @@ struct SearchView: View {
                                 Text("Escoge según tus necesidades")
                                     .font(.caption)
                             }
-                            .padding(.bottom, 50)
+                            .padding(.top, 20)
+                            .padding(.bottom, 30)
                             Text("Buscar por nombre")
                             HStack{
                                 Image(systemName: "magnifyingglass")
@@ -37,22 +38,26 @@ struct SearchView: View {
                                 List(items, id: \.self, selection: $selection){item in
                                     Text(item)
                                 }
-                                .navigationTitle("Categorias")
-                                .toolbar{
-                                    EditButton()
-                                }
                                 .listStyle(.insetGrouped)
+                            } header: {
+                                Text("Buscar por categorías")
                             }
-                            Button{
-                                Task {
+                            NavigationLink{
+                                Text("")
+                                    .task {
                                     do {
-                                        let searchOrg = SearchOrg(queryText: busqueda, categories: Selections, tags: [])
+                                        let category: String = selection ?? ""
+                                        let category1 = (category == "" ? [] : [category])
+//                                        print(category)
+//                                        print(category1)
+                                        let searchOrg = SearchOrg(queryText: busqueda, categories: category1, tags: [])
                                                            self.associations = try await search(search: searchOrg)
+//                                        print(associations)
                                     } catch {
                                         print("error")
                                     }
                                 }
-                                //resultsView()
+                                resultsView(AssociationsArr: associations)
                             } label: {
                                 Text("Buscar")
                             }

@@ -13,6 +13,7 @@ struct resultsView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+    @State var associations: [Association]
 //    @State var presentOrg: Bool = false
     var body: some View {
         NavigationStack{
@@ -21,11 +22,11 @@ struct resultsView: View {
 //                    NavigationView{
                     ScrollView(.vertical){
                             LazyVGrid(columns: layout, spacing: 20) {
-                                ForEach(0..<symbols.count) { index in
+                                ForEach(0..<associations.count) { index in
                                     NavigationLink{
                                         orgView2()
                                     } label: {
-                                        Image(systemName: symbols[index])
+                                        Image(associations[index].logoURL!)
                                             .resizable()
                                             .padding()
                                             .frame(width: 150, height: 100)
@@ -51,5 +52,5 @@ struct resultsView: View {
 }
 
 #Preview {
-    resultsView()
+    resultsView(associations: [])
 }

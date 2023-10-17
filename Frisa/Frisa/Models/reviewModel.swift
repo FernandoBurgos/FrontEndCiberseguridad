@@ -8,6 +8,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import Observation
 
 @Observable
 class ReviewModel {
