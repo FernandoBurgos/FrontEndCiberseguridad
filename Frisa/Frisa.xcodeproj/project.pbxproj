@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3044172ADDFFAE00DCD57B /* ELEMENTOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3044162ADDFFAE00DCD57B /* ELEMENTOS.png */; };
 		7F6FAE512ABBBB9B009E2F79 /* orgView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FAE502ABBBB9B009E2F79 /* orgView2.swift */; };
 		7F8600192AD63C2100447462 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8600182AD63C2100447462 /* PDF.swift */; };
 		7F86001F2AD63F9200447462 /* sample1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7F86001E2AD63F9200447462 /* sample1.pdf */; };
@@ -79,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F3044162ADDFFAE00DCD57B /* ELEMENTOS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ELEMENTOS.png; sourceTree = "<group>"; };
 		7F6FAE502ABBBB9B009E2F79 /* orgView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orgView2.swift; sourceTree = "<group>"; };
 		7F8600182AD63C2100447462 /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
 		7F86001E2AD63F9200447462 /* sample1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sample1.pdf; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				7F6FAE502ABBBB9B009E2F79 /* orgView2.swift */,
 				FB73F47C2ACF730F00D9D983 /* CommentView.swift */,
 				FB73F47A2ACF72BB00D9D983 /* ratingView.swift */,
+				7F3044162ADDFFAE00DCD57B /* ELEMENTOS.png */,
 				7F91B02C2AC23A4B002713A3 /* PreguntasView.swift */,
 				7F8600182AD63C2100447462 /* PDF.swift */,
 				7FA9D1DB2AB7CE5A007EA960 /* Assets.xcassets */,
@@ -408,6 +411,7 @@
 				7FA9D1E02AB7CE5A007EA960 /* Preview Assets.xcassets in Resources */,
 				7FA9D1DC2AB7CE5A007EA960 /* Assets.xcassets in Resources */,
 				7F86001F2AD63F9200447462 /* sample1.pdf in Resources */,
+				7F3044172ADDFFAE00DCD57B /* ELEMENTOS.png in Resources */,
 				FBD1C3272AB9076A00383748 /* GoogleService-Info.plist in Resources */,
 				7F8600212AD63F9700447462 /* sample2 (1).pdf in Resources */,
 			);
