@@ -68,6 +68,11 @@ struct UserView: View {
                                 OrgRegister(clicked: $clicked, orga: $Orgname, desc: $desc, email: $email, newTag: $newtag, tagsarr: $tagarr, categorySelected: $categorySelected)
                             }
                         }
+                        HStack{
+                            NavigationLink("Actualizar datos"){
+                                extraInfoView()
+                            }
+                        }
                         
                     }
                     .listStyle(.insetGrouped)
