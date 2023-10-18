@@ -135,6 +135,7 @@ struct OrgRegister: View {
                             }
                             
                             let association = Association(
+                                _id: "",
                                 name: orga,
                                 description: desc,
                                 ownerId: "notneeded",

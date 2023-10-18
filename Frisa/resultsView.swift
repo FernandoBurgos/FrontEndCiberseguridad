@@ -23,19 +23,19 @@ struct resultsView: View {
 //                    NavigationView{
                     ScrollView(.vertical){
                             LazyVGrid(columns: layout, spacing: 20) {
-                                ForEach(0..<associations.count) { index in
+                                ForEach(0..<associations.count, id: \.self) { index in
                                     
                                     let logoUrl = associations[index].logoURL ?? ""
                                     let completeUrl = apiURL + logoUrl
                                     
                                     NavigationLink{
-                                        orgView2()
+                                        orgView2(association: $associations[index])
                                     } label: {
                                         KFImage(URL(string: completeUrl)!)
-//                                            .resizable()
-//                                            .padding()
-//                                            .frame(width: 150, height: 100)
-//                                            .background(Color(red: 253/255, green: 247/255, blue: 173/255))
+                                            .resizable()
+                                            .padding()
+                                            .frame(width: 150, height: 100)
+                                            .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                                     }
                                 }
                             }

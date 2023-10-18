@@ -8,23 +8,36 @@
 import SwiftUI
 
 struct orgView2: View {
-    let images = ["Arena", "icon"] // imagenes del carrusel
+    @State var images = ["Arena", "icon"] // imagenes del carrusel
     @State private var ratingOrg: Int = 0 // default
     @State private var busqueda: String = ""
     @State var posted: Bool = false
+    @State var tagNames: [String] = []
+    @State var tagsArr: [String] = []
+    @State var tagObject: tagResponse = tagResponse()
     let reviewModel: ReviewModel = ReviewModel()
     @State var fetchedReviews: [review] = []
+    @Binding var association: Association
     var body: some View {
         GeometryReader{geo in
             ZStack{
                 Color(red: 253/255, green: 247/255, blue: 173/255)
-                Text("Arena")
+                Text(association.name)
                     .font(.largeTitle)
                     .offset(y: -geo.size.height/2.2)
+                    .foregroundStyle(.black)
                 Text("")
                     .task {
+                        images = []
+                        
+                        ForEach(association.images, id: \.self){imageUrl in
+                            let newUrl = apiURL + imageUrl
+                            
+                        }
+                        images.append("newUrl")
+                        
                     do {
-                        fetchedReviews = try await reviewModel.fetchReviews(assocID: "650a8883cd6657bdcafe02c5")
+                        fetchedReviews = try await reviewModel.fetchReviews(assocID: association._id)
                         print(fetchedReviews)
                     } catch {
                         print(error)
@@ -35,26 +48,24 @@ struct orgView2: View {
                         .frame(height: 150)//250?
                     ScrollView(.horizontal){
                         HStack{
-                            Text("Tag1")
-                                .frame(width: 100)
-                                .overlay(RoundedRectangle(cornerRadius: 30)
-                                    .stroke(style: StrokeStyle()))
-                            Text("Tag2")
-                                .frame(width: 100)
-                                .overlay(RoundedRectangle(cornerRadius: 30)
-                                    .stroke(style: StrokeStyle()))
-                            Text("Tag3")
-                                .frame(width: 100)
-                                .overlay(RoundedRectangle(cornerRadius: 30)
-                                    .stroke(style: StrokeStyle()))
-                            Text("Tag4")
-                                .frame(width: 100)
-                                .overlay(RoundedRectangle(cornerRadius: 30)
-                                    .stroke(style: StrokeStyle()))
-                            Text("Tag5")
-                                .frame(width: 100)
-                                .overlay(RoundedRectangle(cornerRadius: 30)
-                                    .stroke(style: StrokeStyle()))
+                                Text("")
+                                    .task {
+                                        do{
+                                            tagsArr = try await getArrTags(ids: association.tags)
+                                            print(tagsArr)
+                                        }
+                                        catch {
+                                            print(error)
+                                        }
+                                    }
+                            ForEach(tagsArr, id: \.self){tag in
+                                Text(tag)
+//                                    .frame(width: 100)
+                                    .overlay(RoundedRectangle(cornerRadius: 30)
+                                        .stroke(style: StrokeStyle()))
+                                    .foregroundStyle(.black)
+                                
+                            }
                         }
                     }
                     Divider()
@@ -62,7 +73,8 @@ struct orgView2: View {
                         .padding(.top, 10)
                     Spacer()
                         .frame(height: geo.size.height/30)
-                    Text("El principal reto desde 1998 en Arena, ha sido crear un ambiente de confianza en las familias, impulsando el aprendizaje y el desarrollo de las habilidades de los niños, así como mejorar su capacidad de comunicarse con otras personas, ayudándolos así a que fortalezcan su calidad de vida.")
+                    Text(association.description ?? "")
+                        .foregroundStyle(.black)
                         .multilineTextAlignment(.center)
                         .padding(.leading, 10)
                         .padding(.trailing, 10)
@@ -85,13 +97,13 @@ struct orgView2: View {
 //                                    print(ratingOrg)
                                     Task{
                                         do {
-                                            posted = try await reviewModel.postReview(assocId: "650a8883cd6657bdcafe02c5", content: busqueda, rating: ratingOrg, isPrivate: false)
+                                            posted = try await reviewModel.postReview(assocId: association._id, content: busqueda, rating: ratingOrg, isPrivate: false)
                                             print(posted)
                                         } catch {
                                             print(error)
                                         }
                                         do {
-                                            fetchedReviews = try await reviewModel.fetchReviews(assocID: "650a8883cd6657bdcafe02c5")
+                                            fetchedReviews = try await reviewModel.fetchReviews(assocID: association._id)
                                             print(fetchedReviews)
                                         }
                                         catch {
@@ -123,7 +135,9 @@ struct orgView2: View {
                     Divider()
                         .overlay(.black)
                         .padding(.bottom, -20) // texto
-                    Text("Unidad Country \nAntonio Caso 600, Valle del Contry, Guadalupe, Nuevo León, C.P. 67174\n(+52) 81 8348 8000 \ninformes@autismoarena.org.mx")
+//                    Text("Unidad Country \nAntonio Caso 600, Valle del Contry, Guadalupe, Nuevo León, C.P. 67174\n(+52) 81 8348 8000 \ninformes@autismoarena.org.mx")
+                    Text(association.address)
+                        .foregroundStyle(.black)
                     Spacer()
                     HStack {
                         //mover los icons
@@ -164,5 +178,5 @@ struct orgView2: View {
 
 
 #Preview {
-    orgView2()
+    orgView2(association: .constant(Association(_id: "", name: "hola", description: "descripcion", ownerId: "", colaborators: [], logoURL: "", images: [], websiteURL: "", facebookURL: "", instagramURL: "", categoryId: "", tags: [], contact: Contact(email: "", phone: "", whatsapp: ""), address: "", verified: false)))
 }

@@ -20,6 +20,7 @@ struct Contact: Decodable {
 }
 
 struct Association: Decodable {
+    let _id: String
     let name: String
     let description: String?
     let ownerId: String
@@ -34,6 +35,7 @@ struct Association: Decodable {
     let contact: Contact
     let address: String
     let verified: Bool
+    
 }
 
 

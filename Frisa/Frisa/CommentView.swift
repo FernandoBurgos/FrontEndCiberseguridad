@@ -34,6 +34,7 @@ struct CommentView: View {
                     localDownVotes = downVotes
                 }
             Text("\(username)")
+                .foregroundStyle(.black)
             HStack {
                 Image(systemName: "person.circle.fill")
                     .resizable()
@@ -45,6 +46,7 @@ struct CommentView: View {
                 Text(comment)
                     .padding(8)
                     .background(RoundedRectangle(cornerRadius: 15).fill(Color.gray.opacity(0.1)))
+                    .foregroundStyle(.black)
             }
             
             // Estrella
