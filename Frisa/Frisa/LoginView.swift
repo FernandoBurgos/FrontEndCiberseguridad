@@ -38,7 +38,7 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             VStack{
-                Image("icon").resizable().frame(width: 450.0, height: 450.0) //393 x 310
+                Image("Logo2").resizable().frame(width: 450.0, height: 450.0) //393 x 310
                 VStack{
                     //Para mover el texto hacia arriba y luego un poco a la izq.
                     Text("¡Bienvenido!").frame(maxWidth: .infinity, alignment: .leading).font(.system(size: 30, weight: .bold))

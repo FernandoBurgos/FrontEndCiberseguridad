@@ -14,7 +14,7 @@ struct MainAppView: View {
             VStack {
                 HStack {
                     Text("¡Bienvenido,\nusuario!")
-                        .offset(y:-50)
+                        .offset(y:-40)
                         .offset(x:-80)
                         .font(.system(size: 30, weight: .bold))
                     Button{
@@ -117,27 +117,41 @@ struct MainAppView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
-            .offset(y:30) //todo
+            .offset(y:40) //todo
         }
     }
 }
     
-    struct ImageCarouselView: View {
-        let images: [String]
-        
-        var body: some View {
-            TabView {
-                ForEach(images, id: \.self) { imageName in
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 390, height: 200)
-                        .clipped()
+struct ImageCarouselView: View {
+    let images: [String]
+    @State private var currentPage = 0
+    let timer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        TabView(selection: $currentPage) {
+            ForEach(images.indices, id: \.self) { index in
+                Image(images[index])
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 390, height: 200)
+                    .clipped()
+                    .tag(index)
+            }
+        }
+        .tabViewStyle(PageTabViewStyle())
+        .onReceive(timer) { _ in
+            withAnimation {
+                if currentPage < images.count - 1 {
+                    currentPage += 1
+                } else {
+                    currentPage = 0
                 }
             }
-            .tabViewStyle(PageTabViewStyle()) // con esto el usuario mueve imagen
         }
     }
+}
+
+
 
 #Preview {
     MainAppView()
