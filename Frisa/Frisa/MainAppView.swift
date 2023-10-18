@@ -14,7 +14,7 @@ struct MainAppView: View {
             VStack {
                 HStack {
                     Text("¡Bienvenido,\nusuario!")
-                        .offset(y:-50)
+                        .offset(y:-40)
                         .offset(x:-80)
                         .font(.system(size: 30, weight: .bold))
                     Button{
@@ -117,7 +117,7 @@ struct MainAppView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
-            .offset(y:30) //todo
+            .offset(y:40) //todo
         }
     }
 }
