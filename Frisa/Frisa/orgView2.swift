@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct orgView2: View {
     @State var images = ["Arena", "icon"] // imagenes del carrusel
@@ -30,11 +31,12 @@ struct orgView2: View {
                     .task {
                         images = []
                         
-                        ForEach(association.images, id: \.self){imageUrl in
+                        for imageUrl in association.images{
                             let newUrl = apiURL + imageUrl
-                            
+                            images.append(newUrl)
                         }
-                        images.append("newUrl")
+                        
+                        print(association._id)
                         
                     do {
                         fetchedReviews = try await reviewModel.fetchReviews(assocID: association._id)
@@ -44,7 +46,7 @@ struct orgView2: View {
                     }
                 }
                 VStack{
-                    ImageCarouselView(images: images)
+                    ImageOrgCarouselView(images: images)
                         .frame(height: 150)//250?
                     ScrollView(.horizontal){
                         HStack{
@@ -86,11 +88,13 @@ struct orgView2: View {
                     ScrollView(.vertical) {
                         VStack {
                             Text("Opinión").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).offset(y:-7)
+                                .foregroundStyle(.black)
                             ratingView(rating: $ratingOrg).offset(x:-124).offset(y:-12)
                             HStack{
                                 Image(systemName: "person")
                                 TextField("Agrega un comentario", text: $busqueda)
                                     .padding(.horizontal)
+                                    .foregroundStyle(.black)
                                     .frame(height: 25)
                                 
                                 Button(action: {
@@ -175,6 +179,36 @@ struct orgView2: View {
         }
     }
 }
+
+struct ImageOrgCarouselView: View {
+    let images: [String]
+    @State private var currentPage = 0
+    let timer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        TabView(selection: $currentPage) {
+            ForEach(images.indices, id: \.self) { index in
+                KFImage(URL(string: images[index])!)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 390, height: 200)
+                    .clipped()
+                    .tag(index)
+            }
+        }
+        .tabViewStyle(PageTabViewStyle())
+        .onReceive(timer) { _ in
+            withAnimation {
+                if currentPage < images.count - 1 {
+                    currentPage += 1
+                } else {
+                    currentPage = 0
+                }
+            }
+        }
+    }
+}
+
 
 
 #Preview {
