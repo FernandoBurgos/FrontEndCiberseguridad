@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State var items: [String] = ["Derechos Humanos", "Medio Ambiente", "Cultura y Arte", "Investigación Científica", "Bienestar Animal", "Asistencia Social", "Política y Activismo", "Desarrollo Comunitario", "Salud", "Educación", "Desarrollo Económico", "Desastres y Ayuda Humanitaria"]
+//    @State var items: [String] = ["Derechos Humanos", "Medio Ambiente", "Cultura y Arte", "Investigación Científica", "Bienestar Animal", "Asistencia Social", "Política y Activismo", "Desarrollo Comunitario", "Salud", "Educación", "Desarrollo Económico", "Desastres y Ayuda Humanitaria"]
+    @State var items: [Cat] = []
     @State var Selections: [String] = []
     @State private var busqueda: String = ""
-    @State var selection: String? = ""
+    @State var selection: Cat? = Cat()
     @State private var associations: [Association] = []
     
     var body: some View {
         NavigationStack{
+            Text("")
+                .task {
+                    do{
+                        items.removeAll()
+                        items = try await getCategories()
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
             GeometryReader{ geo in
                 ZStack{
                     VStack{
@@ -36,7 +47,7 @@ struct SearchView: View {
                             }
                             Section{
                                 List(items, id: \.self, selection: $selection){item in
-                                    Text(item)
+                                    Text(item.name)
                                 }
                                 .listStyle(.insetGrouped)
                             } header: {
@@ -46,8 +57,8 @@ struct SearchView: View {
                                 Text("")
                                     .task {
                                     do {
-                                        let category: String = selection ?? ""
-                                        let category1 = (category == "" ? [] : [category])
+                                        let category: Cat = selection ?? Cat()
+                                        let category1 = (category == Cat() ? [] : [category.id])
 //                                        print(category)
 //                                        print(category1)
                                         let searchOrg = SearchOrg(queryText: busqueda, categories: category1, tags: [])
