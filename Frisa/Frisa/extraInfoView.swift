@@ -19,11 +19,12 @@ struct extraInfoView: View {
     @State var youtube: String = ""
     @State var linkedin: String = ""
     @State var isAgreed: Bool = false
+    @Binding var assocId: String
     
     var body: some View {
         NavigationStack{
             VStack{
-                
+                Text(assocId)
                 TextField("Nueva descripción", text: $newDesc).font(.system(size:20, weight: .bold)).foregroundColor(.black)
                     .frame(height: 52)
                     .frame(maxWidth: 327) //para que quede igual que en figma
@@ -127,5 +128,5 @@ struct extraInfoView: View {
 }
 
 #Preview {
-    extraInfoView()
+    extraInfoView(assocId: .constant(""))
 }

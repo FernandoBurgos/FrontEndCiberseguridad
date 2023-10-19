@@ -19,6 +19,8 @@ struct UserView: View {
     @State var changeName: Bool = false
     @State var tagarr: [Tag] = []
     @State var categorySelected: String = "Selecciona una categoría"
+    @State var assocData: Association = Association()
+    @State var assocId: String = ""
     
     @State private var avatarItem: PhotosPickerItem?
     @State private var avatarImage: Image?
@@ -27,7 +29,15 @@ struct UserView: View {
         NavigationStack{
             GeometryReader{ geo in
                 VStack{
-                    
+                    Text("")
+                        .task {
+                                do{
+                                    assocData = try await isOwner()
+                                    assocId = assocData._id
+                                } catch{
+                                    print(error)
+                                }
+                        }
 
                     if let avatarImage {
                         avatarImage
@@ -70,7 +80,8 @@ struct UserView: View {
                         }
                         HStack{
                             NavigationLink("Actualizar datos"){
-                                extraInfoView()
+                                
+                                extraInfoView(assocId: $assocId)
                             }
                         }
                         

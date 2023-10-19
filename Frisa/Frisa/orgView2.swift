@@ -23,10 +23,15 @@ struct orgView2: View {
         GeometryReader{geo in
             ZStack{
                 Color(red: 253/255, green: 247/255, blue: 173/255)
-                Text(association.name)
-                    .font(.largeTitle)
-                    .offset(y: -geo.size.height/2.2)
-                    .foregroundStyle(.black)
+                HStack{
+                    Text(association.name)
+                        .font(.largeTitle)
+                        .offset(y: -geo.size.height/2.2)
+                        .foregroundStyle(.black)
+                    Button{} label: {
+                        Image(systemName: "heart")
+                    }
+                }
                 Text("")
                     .task {
                         images = []

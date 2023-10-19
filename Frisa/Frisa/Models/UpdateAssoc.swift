@@ -1,5 +1,5 @@
 //
-//  UpdateData.swift
+//  UpdateAssoc.swift
 //  Frisa
 //
 //  Created by Alumno on 19/10/23.
@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 struct OrgData {
+    var id: String
     var newDesc: String
     var email: String
     var phone: String
@@ -21,7 +22,7 @@ struct OrgData {
 }
 
 func updateUser(org: OrgData) async throws -> Bool {
-    let url = apiURL + "/api/v1/updateUsername"
+    let url = apiURL + "/api/v1/updateAssociation/\(org.id)"
     let session = Session(interceptor:  AccessTokenAdapter());
     return try await withCheckedThrowingContinuation { continuation in
             let orgUpdateDict: [String: Any] = [
