@@ -103,6 +103,7 @@ struct orgView2: View {
                                         do {
                                             posted = try await reviewModel.postReview(assocId: association._id, content: busqueda, rating: ratingOrg, isPrivate: false)
                                             print(posted)
+                                            busqueda = ""
                                         } catch {
                                             print(error)
                                         }
