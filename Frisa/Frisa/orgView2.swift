@@ -29,15 +29,27 @@ struct orgView2: View {
                     Text(association.name)
                     Spacer()
                     Button{
-                        Task {
-                            do {
-                                let saved = try await saveAssoc(id: association._id)
-                                print(saved)
-                            } catch{
-                                print(error)
+                        if fav {
+                            Task {
+                                do {
+                                    let saved = try await unsaveAssoc(id: association._id)
+                                    print(saved)
+                                } catch{
+                                    print(error)
+                                }
                             }
+                            fav.toggle()
+                        } else {
+                            Task {
+                                do {
+                                    let saved = try await saveAssoc(id: association._id)
+                                    print(saved)
+                                } catch{
+                                    print(error)
+                                }
+                            }
+                            fav.toggle()
                         }
-                        fav.toggle()
                     } label: {
                         let image = (fav ? "heart.fill" : "heart")
                         Image(systemName: image)

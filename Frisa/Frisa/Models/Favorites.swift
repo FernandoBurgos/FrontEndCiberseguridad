@@ -13,7 +13,7 @@ struct SavedAssoc:Decodable {
     var name: String
     var description: String
     var logoURL: String
-    var rating: Int
+    var rating: Int?
 }
 
 struct saResults:Decodable {
@@ -66,7 +66,7 @@ func unsaveAssoc(id: String) async throws -> Bool {
         }
 }
 
-func getFavorites(id: String) async throws -> [SavedAssoc] {
+func getFavorites() async throws -> [SavedAssoc] {
     let url = apiURL + "/api/v1/getSavedAssociations"
     let session = Session(interceptor:  AccessTokenAdapter());
     return try await withCheckedThrowingContinuation { continuation in
