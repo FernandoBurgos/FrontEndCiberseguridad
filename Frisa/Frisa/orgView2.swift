@@ -13,6 +13,7 @@ struct orgView2: View {
     @State private var ratingOrg: Int = 0 // default
     @State private var busqueda: String = ""
     @State var posted: Bool = false
+    @State var fav: Bool = false
     @State var tagNames: [String] = []
     @State var tagsArr: [String] = []
     @State var tagObject: tagResponse = tagResponse()
@@ -24,14 +25,27 @@ struct orgView2: View {
             ZStack{
                 Color(red: 253/255, green: 247/255, blue: 173/255)
                 HStack{
+                    Spacer()
                     Text(association.name)
-                        .font(.largeTitle)
-                        .offset(y: -geo.size.height/2.2)
-                        .foregroundStyle(.black)
-                    Button{} label: {
-                        Image(systemName: "heart")
+                    Spacer()
+                    Button{
+                        Task {
+                            do {
+                                let saved = try await saveAssoc(id: association._id)
+                                print(saved)
+                            } catch{
+                                print(error)
+                            }
+                        }
+                        fav.toggle()
+                    } label: {
+                        let image = (fav ? "heart.fill" : "heart")
+                        Image(systemName: image)
                     }
                 }
+                .font(.largeTitle)
+                .offset(y: -geo.size.height/2.2)
+                .foregroundStyle(.black)
                 Text("")
                     .task {
                         images = []

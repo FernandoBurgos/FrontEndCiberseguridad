@@ -19,18 +19,30 @@ struct extraInfoView: View {
     @State var youtube: String = ""
     @State var linkedin: String = ""
     @State var isAgreed: Bool = false
-    @Binding var assocId: String
+    @Binding var assocData: Association
+    
+    func resetValues() -> Void {
+        newDesc = ""
+        email = ""
+        phone = ""
+        whatsapp = ""
+        face = ""
+        insta = ""
+        youtube = ""
+        linkedin = ""
+    }
+    
     
     var body: some View {
         NavigationStack{
             VStack{
-                Text(assocId)
                 TextField("Nueva descripción", text: $newDesc).font(.system(size:20, weight: .bold)).foregroundColor(.black)
                     .frame(height: 52)
                     .frame(maxWidth: 327) //para que quede igual que en figma
                     .padding(10)
                     .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                     .cornerRadius(8)
+                    .foregroundStyle(.black)
                 
                 TextField("Correo Electrónico", text: $email).font(.system(size:20, weight: .bold)).foregroundColor(.black)
                     .frame(height: 52)
@@ -38,6 +50,7 @@ struct extraInfoView: View {
                     .padding(10)
                     .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                     .cornerRadius(8)
+                    .foregroundStyle(.black)
                 
                 iPhoneNumberField("Teléfono", text: $phone)
                     .font(UIFont(size: 20, weight: .bold, design: .rounded))
@@ -48,6 +61,7 @@ struct extraInfoView: View {
                     .padding(10)
                     .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                     .cornerRadius(8)
+                    .foregroundStyle(.black)
                 
                 iPhoneNumberField("WhatsApp", text: $whatsapp)
                     .font(UIFont(size: 20, weight: .bold, design: .rounded))
@@ -56,6 +70,7 @@ struct extraInfoView: View {
                     .padding(10)
                     .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                     .cornerRadius(8)
+                    .foregroundStyle(.black)
                 
                 Toggle(isOn: $isAgreed) {
                     Text("¿Deseas agregar tus redes sociales?").font(.system(size:16, weight: .bold))
@@ -71,6 +86,7 @@ struct extraInfoView: View {
                         .padding(10)
                         .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                         .cornerRadius(8)
+                        .foregroundStyle(.black)
                     
                     TextField("Instagram", text: $insta).font(.system(size:20, weight: .bold)).foregroundColor(.black)
                         .frame(height: 52)
@@ -78,6 +94,7 @@ struct extraInfoView: View {
                         .padding(10)
                         .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                         .cornerRadius(8)
+                        .foregroundStyle(.black)
                     
                     TextField("Youtube", text: $youtube).font(.system(size:20, weight: .bold)).foregroundColor(.black)
                         .frame(height: 52)
@@ -85,6 +102,7 @@ struct extraInfoView: View {
                         .padding(10)
                         .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                         .cornerRadius(8)
+                        .foregroundStyle(.black)
                     
                     TextField("LinkedIn", text: $linkedin).font(.system(size:20, weight: .bold)).foregroundColor(.black)
                         .frame(height: 52)
@@ -92,9 +110,30 @@ struct extraInfoView: View {
                         .padding(10)
                         .background(Color(red: 253/255, green: 247/255, blue: 173/255))
                         .cornerRadius(8)
+                        .foregroundStyle(.black)
                 }
                 
-                Button{} label: {
+                Button{
+                    Task{
+                        newDesc = (newDesc == "" ? assocData.description ?? "" : newDesc)
+                        email = (email == "" ? assocData.contact.email : email)
+                        phone = (phone == "" ? assocData.contact.phone : phone)
+                        whatsapp = (whatsapp == "" ? assocData.contact.whatsapp ?? "" : whatsapp)
+                        face = (face == "" ? assocData.facebookURL ?? "" : face)
+                        insta = (insta == "" ? assocData.instagramURL ?? "" : insta)
+                        do{
+                            print(face)
+                            let newAssocInfo = OrgData(id: assocData._id, newDesc: self.newDesc, email: self.email, phone: self.phone, whatsapp: self.whatsapp, face: self.face, insta: self.insta, youtube: self.youtube, linkedin: self.linkedin)
+                            
+                            let posted = try await updateAssociation(org: newAssocInfo)
+                            print(posted)
+                            
+                            resetValues()
+                        } catch {
+                            print(error)
+                        }
+                    }
+                } label: {
                     Text("Actualizar datos")
                 }
                 .font(.system(size:20, weight: .bold))
@@ -128,5 +167,5 @@ struct extraInfoView: View {
 }
 
 #Preview {
-    extraInfoView(assocId: .constant(""))
+    extraInfoView(assocData: .constant(Association(_id: "", name: "", description: "", ownerId: "", colaborators: [], logoURL: "", images: [], websiteURL: "", facebookURL: "", instagramURL: "", categoryId: "", tags: [], contact: Contact(email: "", phone: "", whatsapp: ""), address: "", verified: false)))
 }

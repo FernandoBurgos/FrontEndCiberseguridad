@@ -19,7 +19,7 @@ struct UserView: View {
     @State var changeName: Bool = false
     @State var tagarr: [Tag] = []
     @State var categorySelected: String = "Selecciona una categoría"
-    @State var assocData: Association = Association()
+    @State var assocData: Association = Association(_id: "", name: "", description: "", ownerId: "", colaborators: [], logoURL: "", images: [], websiteURL: "", facebookURL: "", instagramURL: "", categoryId: "", tags: [], contact: Contact(email: "", phone: "", whatsapp: ""), address: "", verified: false)
     @State var assocId: String = ""
     
     @State private var avatarItem: PhotosPickerItem?
@@ -70,7 +70,7 @@ struct UserView: View {
                         }
                         HStack{
                             NavigationLink("Favoritos"){
-                                favoriteView()
+                                favoriteView(associations: [], AssocViewData: Association(_id: "", name: "", description: "", ownerId: "", colaborators: [], logoURL: "", images: [], websiteURL: "", facebookURL: "", instagramURL: "", categoryId: "", tags: [], contact: Contact(email: "", phone: "", whatsapp: ""), address: "", verified: false))
                             }
                         }
                         HStack{
@@ -81,7 +81,7 @@ struct UserView: View {
                         HStack{
                             NavigationLink("Actualizar datos"){
                                 
-                                extraInfoView(assocId: $assocId)
+                                extraInfoView(assocData: $assocData)
                             }
                         }
                         

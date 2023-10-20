@@ -61,7 +61,7 @@ func isOwner() async throws -> Association {
                                     continuation.resume(throwing: error)
                                 }
                             } else {
-                                continuation.resume(returning: Association())
+                                continuation.resume(returning: Association(_id: "", name: "", description: "", ownerId: "", colaborators: [], logoURL: "", images: [], websiteURL: "", facebookURL: "", instagramURL: "", categoryId: "", tags: [], contact: Contact(email: "", phone: "", whatsapp: ""), address: "", verified: false))
                             } // Return true on success.
                         case .failure(let error):
                             print(error)

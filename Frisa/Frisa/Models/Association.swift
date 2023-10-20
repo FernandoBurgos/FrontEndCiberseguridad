@@ -18,17 +18,17 @@ struct Contact: Decodable {
     let phone: String
     let whatsapp: String?
     
-    init(email: String, phone: String, whatsapp: String?) {
-        self.email = email
-        self.phone = phone
-        self.whatsapp = whatsapp
-    }
-    
-    init (){
-        email = ""
-        phone = ""
-        whatsapp = ""
-    }
+//    init(email: String, phone: String, whatsapp: String?) {
+//        self.email = email
+//        self.phone = phone
+//        self.whatsapp = whatsapp
+//    }
+//    
+//    init (){
+//        email = ""
+//        phone = ""
+//        whatsapp = ""
+//    }
 }
 
 struct Association: Decodable {
@@ -48,41 +48,41 @@ struct Association: Decodable {
     let address: String
     let verified: Bool
     
-    init(_id: String, name: String, description: String?, ownerId: String, colaborators: [Colaborator], logoURL: String?, images: [String], websiteURL: String?, facebookURL: String?, instagramURL: String?, categoryId: String, tags: [String], contact: Contact, address: String, verified: Bool) {
-        self._id = _id
-        self.name = name
-        self.description = description
-        self.ownerId = ownerId
-        self.colaborators = colaborators
-        self.logoURL = logoURL
-        self.images = images
-        self.websiteURL = websiteURL
-        self.facebookURL = facebookURL
-        self.instagramURL = instagramURL
-        self.categoryId = categoryId
-        self.tags = tags
-        self.contact = contact
-        self.address = address
-        self.verified = verified
-    }
-    
-    init(){
-         _id = ""
-        name = ""
-        description = ""
-        ownerId = ""
-        colaborators = []
-        logoURL = ""
-        images = []
-        websiteURL = ""
-        facebookURL = ""
-        instagramURL = ""
-        categoryId = ""
-        tags = []
-        contact = Contact()
-        address = ""
-        verified = false
-    }
+//    init(_id: String, name: String, description: String?, ownerId: String, colaborators: [Colaborator], logoURL: String?, images: [String], websiteURL: String?, facebookURL: String?, instagramURL: String?, categoryId: String, tags: [String], contact: Contact, address: String, verified: Bool) {
+//        self._id = _id
+//        self.name = name
+//        self.description = description
+//        self.ownerId = ownerId
+//        self.colaborators = colaborators
+//        self.logoURL = logoURL
+//        self.images = images
+//        self.websiteURL = websiteURL
+//        self.facebookURL = facebookURL
+//        self.instagramURL = instagramURL
+//        self.categoryId = categoryId
+//        self.tags = tags
+//        self.contact = contact
+//        self.address = address
+//        self.verified = verified
+//    }
+//    
+//    init(){
+//         _id = ""
+//        name = ""
+//        description = ""
+//        ownerId = ""
+//        colaborators = []
+//        logoURL = ""
+//        images = []
+//        websiteURL = ""
+//        facebookURL = ""
+//        instagramURL = ""
+//        categoryId = ""
+//        tags = []
+//        contact = Contact()
+//        address = ""
+//        verified = false
+//    }
     
 }
 

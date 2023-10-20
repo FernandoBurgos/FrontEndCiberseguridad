@@ -7,7 +7,7 @@
 
 import Foundation
 
-let apiURL: String = "https://10.14.255.177:443"
+let apiURL: String = "http://10.14.255.177:8080"
 
 let headers = ["Accept": "application/json", "Content-Type": "application/json" ]
 let tmdbURL = "https://api.themoviedb.org/3/"

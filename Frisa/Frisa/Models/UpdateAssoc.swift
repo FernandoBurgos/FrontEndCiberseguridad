@@ -21,7 +21,7 @@ struct OrgData {
     var linkedin: String
 }
 
-func updateUser(org: OrgData) async throws -> Bool {
+func updateAssociation(org: OrgData) async throws -> Bool {
     let url = apiURL + "/api/v1/updateAssociation/\(org.id)"
     let session = Session(interceptor:  AccessTokenAdapter());
     return try await withCheckedThrowingContinuation { continuation in
@@ -35,7 +35,7 @@ func updateUser(org: OrgData) async throws -> Bool {
                 "youtube": org.youtube,
                 "linkedin": org.linkedin
             ]
-            session.request(url, method: .post, parameters: orgUpdateDict, encoding: JSONEncoding.default)
+            session.request(url, method: .put, parameters: orgUpdateDict, encoding: JSONEncoding.default)
                 .responseJSON { response in
                     switch response.result {
                     case .success(let data):
